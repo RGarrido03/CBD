@@ -1,0 +1,20 @@
+lpush test_ex1 "Hello world!"
+rpush test_ex1 "Is this working?"
+rpush test_ex1 "How can I check the list?"
+lindex test_ex1 0
+llen test_ex1
+strlen test_ex1
+set str_ex1 "Hello world?"
+get str_ex1
+lrange test_ex1 0 1
+lrange str_ex1 0 2
+substr str_ex1 0 2
+append test_ex1 "i'm slaying"
+append str_ex1 "i guess not"
+get str_ex1
+set str_ex1 "hello world"
+get str_ex1
+sadd set_ex1 a b c
+sadd set_ex1 a
+smembers set_ex1
+spop smembers 0

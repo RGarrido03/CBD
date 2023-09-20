@@ -1,0 +1,13 @@
+hset map_ex2 "hello" "world"
+hset map_ex2 "a" "A" "b" "B"
+hlen map_ex2
+hkeys map_ex2
+hvals map_ex2
+hget map_ex2 "a"
+hexists map_ex2 "b"
+hsetnx map_ex2 "b" "BB"
+hget map_ex2 "b"
+hset map_ex2 "b" "BB"
+hget map_ex2 "b"
+hdel map_ex2 "hello"
+hgetall map_ex2
