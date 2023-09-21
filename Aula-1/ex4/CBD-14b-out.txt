@@ -1,0 +1,41 @@
+Getting server ready by getting all words...
+
+Search for ('Enter' for quit): Mari
+Maria
+Mariana
+Marisa
+Marina
+Marisol
+Mariam
+Mario
+Marie
+Maribel
+Mariano
+Mariama
+Mariusz
+Marius
+Marisela
+Marion
+Marin
+Marilyn
+Mariluz
+Marilinda
+Marieta
+Marianna
+Mariame
+Mariah
+MariaLuísa
+Mari
+
+Search for ('Enter' for quit): Sant
+Santiago
+Santhiago
+Sante
+
+Search for ('Enter' for quit): Carol
+Carolina
+Carol
+Caroline
+Carole
+
+Search for ('Enter' for quit): 
