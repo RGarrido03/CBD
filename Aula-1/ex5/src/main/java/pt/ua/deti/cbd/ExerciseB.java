@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import redis.clients.jedis.Jedis;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ExerciseB {
@@ -14,7 +14,7 @@ public class ExerciseB {
     private static final int TIMESLOT = 60;
 
     public static void main(String[] args) {
-        logger.debug("Current order limit: " + LIMIT);
+        logger.debug("Current products limit: " + LIMIT);
         logger.debug("Current time slot: " + TIMESLOT + " minutes");
         try (Jedis jedis = new Jedis()) {
             logger.debug("Cleaning database...");
@@ -22,11 +22,12 @@ public class ExerciseB {
 
             Scanner sc = new Scanner(System.in);
             String input;
+            int productsNumber;
 
             while (true) {
                 System.out.print("Input the name: ");
                 input = sc.nextLine().toLowerCase().replace(" ", "_");
-                logger.debug("Name: " + input);
+                logger.debug("Inputted name: " + input);
 
                 // Break condition
                 if (input.isEmpty()) {
@@ -34,35 +35,41 @@ public class ExerciseB {
                     break;
                 }
 
+                System.out.print("Input the number of products: ");
+                productsNumber = Integer.parseInt(sc.nextLine());
+                logger.debug("Inputted number of products: " + productsNumber);
+
                 // Fetching orders
-                List<String> currentOrders;
+                Map<String, String> currentOrders;
                 if (jedis.exists(input)) {
-                    logger.debug("Key exists. Getting list...");
-                    currentOrders = jedis.lrange(input, 0, -1);
+                    logger.debug("Key exists. Getting hash map...");
+                    currentOrders = jedis.hgetAll(input);
                 } else {
-                    logger.debug("No key exists. Adding order to a new list...");
-                    jedis.rpush(input, LocalDateTime.now().toString());
-                    logger.info("Current orders: 1");
+                    logger.debug(
+                            "No key exists. Adding order with " + productsNumber + " product(s) to a new hash map...");
+                    jedis.hset(input, LocalDateTime.now().toString(), String.valueOf(productsNumber));
+                    logger.info("Current products: " + productsNumber);
                     continue;
                 }
 
-                // Check how many orders were made in the last TIMESLOT minutes
-                int ordersInTime = 0;
-                for (String s : currentOrders) {
-                    LocalDateTime temp = LocalDateTime.parse(s);
+                // Check how many products were ordered in the last TIMESLOT minutes
+                int productsInTime = 0;
+                for (Map.Entry<String, String> entry : currentOrders.entrySet()) {
+                    LocalDateTime temp = LocalDateTime.parse(entry.getKey());
                     if (temp.isAfter(LocalDateTime.now().minusMinutes(TIMESLOT))) {
-                        logger.debug("New order in the last " + TIMESLOT + " minutes found.");
-                        ordersInTime++;
+                        logger.debug(
+                                "New order with " + entry.getValue() + " product(s) in the last " + TIMESLOT + " minutes found.");
+                        productsInTime += Integer.parseInt(entry.getValue());
                     }
                 }
-                logger.info(ordersInTime + " orders were made in the last " + TIMESLOT + " minutes.");
+                logger.info(productsInTime + " product(s) were ordered in the last " + TIMESLOT + " minutes.");
 
                 // Add order if possible
-                boolean canAddOrder = ordersInTime < LIMIT;
+                boolean canAddOrder = (productsInTime + productsNumber) <= LIMIT;
                 if (canAddOrder) {
-                    logger.debug("Adding new order to list...");
-                    jedis.rpush(input, LocalDateTime.now().toString());
-                    logger.info("Current orders: " + (ordersInTime + 1));
+                    logger.debug("Adding new order with " + productsNumber + " product(s) to the hash map...");
+                    jedis.hset(input, LocalDateTime.now().toString(), String.valueOf(productsNumber));
+                    logger.info("Current products: " + (productsInTime + productsNumber));
                 } else {
                     logger.warn("Order rate limit exceeded!");
                 }

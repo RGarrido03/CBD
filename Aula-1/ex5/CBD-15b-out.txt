@@ -1,0 +1,56 @@
+[DEBUG] 2023-09-23 20:00:58.263 [main] ExerciseB - Current products limit: 4
+[DEBUG] 2023-09-23 20:00:58.264 [main] ExerciseB - Current time slot: 60 minutes
+[DEBUG] 2023-09-23 20:00:58.282 [main] ExerciseB - Cleaning database...
+Input the name: ruben
+[DEBUG] 2023-09-23 20:01:00.407 [main] ExerciseB - Inputted name: ruben
+Input the number of products: 1
+[DEBUG] 2023-09-23 20:01:01.727 [main] ExerciseB - Inputted number of products: 1
+[DEBUG] 2023-09-23 20:01:01.731 [main] ExerciseB - No key exists. Adding order with 1 product(s) to a new hash map...
+[INFO ] 2023-09-23 20:01:01.740 [main] ExerciseB - Current products: 1
+Input the name: ruben
+[DEBUG] 2023-09-23 20:01:04.219 [main] ExerciseB - Inputted name: ruben
+Input the number of products: 2
+[DEBUG] 2023-09-23 20:01:06.502 [main] ExerciseB - Inputted number of products: 2
+[DEBUG] 2023-09-23 20:01:06.504 [main] ExerciseB - Key exists. Getting hash map...
+[DEBUG] 2023-09-23 20:01:06.510 [main] ExerciseB - New order with 1 product(s) in the last 60 minutes found.
+[INFO ] 2023-09-23 20:01:06.510 [main] ExerciseB - 1 product(s) were ordered in the last 60 minutes.
+[DEBUG] 2023-09-23 20:01:06.510 [main] ExerciseB - Adding new order with 2 product(s) to the hash map...
+[INFO ] 2023-09-23 20:01:06.511 [main] ExerciseB - Current products: 3
+Input the name: ruben
+[DEBUG] 2023-09-23 20:01:08.715 [main] ExerciseB - Inputted name: ruben
+Input the number of products: 2
+[DEBUG] 2023-09-23 20:01:12.986 [main] ExerciseB - Inputted number of products: 2
+[DEBUG] 2023-09-23 20:01:12.987 [main] ExerciseB - Key exists. Getting hash map...
+[DEBUG] 2023-09-23 20:01:12.988 [main] ExerciseB - New order with 1 product(s) in the last 60 minutes found.
+[DEBUG] 2023-09-23 20:01:12.988 [main] ExerciseB - New order with 2 product(s) in the last 60 minutes found.
+[INFO ] 2023-09-23 20:01:12.988 [main] ExerciseB - 3 product(s) were ordered in the last 60 minutes.
+[WARN ] 2023-09-23 20:01:12.988 [main] ExerciseB - Order rate limit exceeded!
+Input the name: ruben
+[DEBUG] 2023-09-23 20:01:21.271 [main] ExerciseB - Inputted name: ruben
+Input the number of products: 1
+[DEBUG] 2023-09-23 20:01:23.071 [main] ExerciseB - Inputted number of products: 1
+[DEBUG] 2023-09-23 20:01:23.072 [main] ExerciseB - Key exists. Getting hash map...
+[DEBUG] 2023-09-23 20:01:23.073 [main] ExerciseB - New order with 1 product(s) in the last 60 minutes found.
+[DEBUG] 2023-09-23 20:01:23.073 [main] ExerciseB - New order with 2 product(s) in the last 60 minutes found.
+[INFO ] 2023-09-23 20:01:23.074 [main] ExerciseB - 3 product(s) were ordered in the last 60 minutes.
+[DEBUG] 2023-09-23 20:01:23.074 [main] ExerciseB - Adding new order with 1 product(s) to the hash map...
+[INFO ] 2023-09-23 20:01:23.075 [main] ExerciseB - Current products: 4
+Input the name: ruben
+[DEBUG] 2023-09-23 20:01:25.159 [main] ExerciseB - Inputted name: ruben
+Input the number of products: 1
+[DEBUG] 2023-09-23 20:01:26.982 [main] ExerciseB - Inputted number of products: 1
+[DEBUG] 2023-09-23 20:01:26.983 [main] ExerciseB - Key exists. Getting hash map...
+[DEBUG] 2023-09-23 20:01:26.984 [main] ExerciseB - New order with 1 product(s) in the last 60 minutes found.
+[DEBUG] 2023-09-23 20:01:26.984 [main] ExerciseB - New order with 1 product(s) in the last 60 minutes found.
+[DEBUG] 2023-09-23 20:01:26.985 [main] ExerciseB - New order with 2 product(s) in the last 60 minutes found.
+[INFO ] 2023-09-23 20:01:26.985 [main] ExerciseB - 4 product(s) were ordered in the last 60 minutes.
+[WARN ] 2023-09-23 20:01:26.986 [main] ExerciseB - Order rate limit exceeded!
+Input the name: garrido
+[DEBUG] 2023-09-23 20:01:29.699 [main] ExerciseB - Inputted name: garrido
+Input the number of products: 3
+[DEBUG] 2023-09-23 20:01:31.736 [main] ExerciseB - Inputted number of products: 3
+[DEBUG] 2023-09-23 20:01:31.737 [main] ExerciseB - No key exists. Adding order with 3 product(s) to a new hash map...
+[INFO ] 2023-09-23 20:01:31.738 [main] ExerciseB - Current products: 3
+Input the name:
+[DEBUG] 2023-09-23 20:01:34.151 [main] ExerciseB - Inputted name: 
+[DEBUG] 2023-09-23 20:01:34.152 [main] ExerciseB - Empty name. Exiting...
