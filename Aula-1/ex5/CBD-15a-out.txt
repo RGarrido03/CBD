@@ -1,0 +1,89 @@
+[DEBUG] 2023-09-23 18:24:45.274 [main] ExerciseA - Current order limit: 4
+[DEBUG] 2023-09-23 18:24:45.275 [main] ExerciseA - Current time slot: 60 minutes
+[DEBUG] 2023-09-23 18:24:45.295 [main] ExerciseA - Cleaning database...
+Input the name: ruben
+[DEBUG] 2023-09-23 18:24:48.995 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:24:48.996 [main] ExerciseA - No key exists. Adding order to a new list...
+[INFO ] 2023-09-23 18:24:49.002 [main] ExerciseA - Current orders: 1
+Input the name: ruben
+[DEBUG] 2023-09-23 18:24:50.383 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:24:50.384 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:24:50.389 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:24:50.390 [main] ExerciseA - 1 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:24:50.390 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:24:50.391 [main] ExerciseA - Current orders: 2
+Input the name: ruben
+[DEBUG] 2023-09-23 18:24:51.833 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:24:51.834 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:24:51.835 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:51.835 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:24:51.835 [main] ExerciseA - 2 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:24:51.836 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:24:51.836 [main] ExerciseA - Current orders: 3
+Input the name: ruben
+[DEBUG] 2023-09-23 18:24:53.740 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:24:53.741 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:24:53.742 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:53.742 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:53.742 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:24:53.742 [main] ExerciseA - 3 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:24:53.743 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:24:53.743 [main] ExerciseA - Current orders: 4
+Input the name: ruben
+[DEBUG] 2023-09-23 18:24:57.450 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:24:57.451 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:24:57.451 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:57.451 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:57.452 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:24:57.452 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:24:57.452 [main] ExerciseA - 4 orders were made in the last 60 minutes.
+[WARN ] 2023-09-23 18:24:57.452 [main] ExerciseA - Order rate limit exceeded!
+Input the name: ruben
+[DEBUG] 2023-09-23 18:25:04.312 [main] ExerciseA - Name: ruben
+[DEBUG] 2023-09-23 18:25:04.313 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:25:04.314 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:04.315 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:04.316 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:04.316 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:25:04.316 [main] ExerciseA - 4 orders were made in the last 60 minutes.
+[WARN ] 2023-09-23 18:25:04.317 [main] ExerciseA - Order rate limit exceeded!
+Input the name: garrido
+[DEBUG] 2023-09-23 18:25:07.852 [main] ExerciseA - Name: garrido
+[DEBUG] 2023-09-23 18:25:07.852 [main] ExerciseA - No key exists. Adding order to a new list...
+[INFO ] 2023-09-23 18:25:07.852 [main] ExerciseA - Current orders: 1
+Input the name: garrido
+[DEBUG] 2023-09-23 18:25:09.696 [main] ExerciseA - Name: garrido
+[DEBUG] 2023-09-23 18:25:09.696 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:25:09.697 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:25:09.697 [main] ExerciseA - 1 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:25:09.697 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:25:09.698 [main] ExerciseA - Current orders: 2
+Input the name: garrido
+[DEBUG] 2023-09-23 18:25:11.409 [main] ExerciseA - Name: garrido
+[DEBUG] 2023-09-23 18:25:11.409 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:25:11.409 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:11.410 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:25:11.410 [main] ExerciseA - 2 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:25:11.410 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:25:11.410 [main] ExerciseA - Current orders: 3
+Input the name: garrido
+[DEBUG] 2023-09-23 18:25:13.168 [main] ExerciseA - Name: garrido
+[DEBUG] 2023-09-23 18:25:13.168 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:25:13.169 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:13.169 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:13.169 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:25:13.170 [main] ExerciseA - 3 orders were made in the last 60 minutes.
+[DEBUG] 2023-09-23 18:25:13.170 [main] ExerciseA - Adding new order to list...
+[INFO ] 2023-09-23 18:25:13.170 [main] ExerciseA - Current orders: 4
+Input the name: garrido
+[DEBUG] 2023-09-23 18:25:15.143 [main] ExerciseA - Name: garrido
+[DEBUG] 2023-09-23 18:25:15.144 [main] ExerciseA - Key exists. Getting list...
+[DEBUG] 2023-09-23 18:25:15.144 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:15.145 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:15.145 [main] ExerciseA - New order in the last 60 minutes found.
+[DEBUG] 2023-09-23 18:25:15.145 [main] ExerciseA - New order in the last 60 minutes found.
+[INFO ] 2023-09-23 18:25:15.145 [main] ExerciseA - 4 orders were made in the last 60 minutes.
+[WARN ] 2023-09-23 18:25:15.146 [main] ExerciseA - Order rate limit exceeded!
+Input the name:
+[DEBUG] 2023-09-23 18:25:17.629 [main] ExerciseA - Name: 
+[DEBUG] 2023-09-23 18:25:17.630 [main] ExerciseA - Empty name. Exiting...

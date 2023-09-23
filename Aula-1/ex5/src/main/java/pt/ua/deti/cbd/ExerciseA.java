@@ -9,10 +9,12 @@ import java.util.Scanner;
 
 public class ExerciseA {
     private static final Logger logger = LogManager.getLogger(ExerciseA.class);
-    private static final int LIMIT = 30;
+    private static final int LIMIT = 4;
     private static final int TIMESLOT = 60;
 
     public static void main(String[] args) {
+        logger.debug("Current order limit: " + LIMIT);
+        logger.debug("Current time slot: " + TIMESLOT + " minutes");
         try (Jedis jedis = new Jedis()) {
             logger.debug("Cleaning database...");
             jedis.flushAll();
@@ -23,6 +25,7 @@ public class ExerciseA {
             while (true) {
                 System.out.print("Input the name: ");
                 input = sc.nextLine().toLowerCase().replace(" ", "_");
+                logger.debug("Name: " + input);
 
                 // Break condition
                 if (input.isEmpty()) {
@@ -60,7 +63,7 @@ public class ExerciseA {
                     jedis.rpush(input, LocalDateTime.now().toString());
                     logger.info("Current orders: " + (ordersInTime + 1));
                 } else {
-                    System.out.println("Order rate limit exceeded!");
+                    logger.warn("Order rate limit exceeded!");
                 }
             }
         } catch (Exception e) {
