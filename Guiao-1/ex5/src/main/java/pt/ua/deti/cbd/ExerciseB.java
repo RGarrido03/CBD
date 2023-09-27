@@ -44,6 +44,9 @@ public class ExerciseB {
                 if (jedis.exists(input)) {
                     logger.debug("Key exists. Getting hash map...");
                     currentOrders = jedis.hgetAll(input);
+                } else if (productsNumber > LIMIT) {
+                    logger.info("No key exists, but order rate limit is exceeded. Aborting new order.");
+                    continue;
                 } else {
                     logger.debug(
                             "No key exists. Adding order with " + productsNumber + " product(s) to a new hash map...");
