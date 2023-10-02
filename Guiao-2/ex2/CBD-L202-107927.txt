@@ -1,0 +1,338 @@
+// NMEC: 107927
+
+// 1. Liste todos os documentos da coleção.
+db.restaurants.find();
+// 3772
+
+// 2. Apresente os campos restaurant_id, nome, localidade e gastronomia para todos os documentos da coleção.
+db.restaurants.find(
+  {},
+  { _id: 0, restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 }
+);
+// 3772
+
+// 3. Apresente os campos restaurant_id, nome, localidade e código postal (zipcode), mas exclua o campo _id de todos os documentos da coleção.
+db.restaurants.find(
+  {},
+  {
+    _id: 0,
+    restaurant_id: 1,
+    nome: 1,
+    localidade: 1,
+    gastronomia: 1,
+    address: { zipcode: 1 },
+  }
+);
+// 3772
+
+// 4. Indique o total de restaurantes localizados no Bronx.
+db.restaurants.find({ localidade: "Bronx" });
+// 309
+
+// 5. Apresente os primeiros 15 restaurantes localizados no Bronx, ordenados por ordem crescente de nome.
+db.restaurants.find({ localidade: "Bronx" }).sort({ nome: 1 }).limit(15);
+// 15
+
+// 6. Liste todos os restaurantes que tenham pelo menos um score superior a 85.
+db.restaurants.find({ "grades.score": { $gte: 85 } });
+// 4
+
+// 7. Encontre os restaurantes que obtiveram uma ou mais pontuações (score) entre [80 e 100].
+db.restaurants.find({ "grades.score": { $gte: 80, $lte: 100 } });
+// 5
+// No entanto, um destes não possui pontuações neste intervalo de valores.
+
+// 8. Indique os restaurantes com latitude inferior a -95,7.
+db.restaurants.find({ "address.coord.0": { $lt: -95.7 } });
+// 3
+
+// 9. Indique os restaurantes que não têm gastronomia "American", tiveram uma (ou mais) pontuação superior a 70 e estão numa latitude inferior a -65.
+db.restaurants.find({
+  "grades.score": { $gte: 70 },
+  "address.coord.0": { $lt: -65 },
+  gastronomia: { $ne: "American" },
+});
+// 5
+
+// 10. Liste o restaurant_id, o nome, a localidade e gastronomia dos restaurantes cujo nome começam por "Wil".
+db.restaurants.find(
+  { nome: /^Wil/ },
+  { _id: 0, restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 }
+);
+// 3
+// Não sei se era necessário remover o _id, mas, uma vez que a pergunta não pedia, decidi remover
+
+// 11. Liste o nome, a localidade e a gastronomia dos restaurantes que pertencem ao Bronx e cuja gastronomia é do tipo "American" ou "Chinese".
+db.restaurants.find(
+  { localidade: "Bronx", gastronomia: { $in: ["American", "Chinese"] } },
+  { _id: 0, nome: 1, localidade: 1, gastronomia: 1 }
+);
+// db.restaurants.find({localidade: "Bronx", $or: [{gastronomia: "American"}, {gastronomia: "Chinese"}]}, {_id: 0, nome: 1, localidade: 1, gastronomia: 1})
+// 91
+
+// 12. Liste o restaurant_id, o nome, a localidade e a gastronomia dos restaurantes localizados em "Staten Island", "Queens", ou "Brooklyn".
+db.restaurants.find(
+  {
+    localidade: { $in: ["Staten Island", "Queens", "Brooklyn"] },
+  },
+  { _id: 0, restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 }
+);
+// 1580
+
+// 13. Liste o nome, a localidade, o score e gastronomia dos restaurantes que alcançaram sempre pontuações inferiores ou igual a 3.
+db.restaurants.find(
+  { "grades.score": { $not: { $gt: 3 } } },
+  { _id: 0, nome: 1, localidade: 1, gastronomia: 1, "grades.score": 1 }
+);
+// 7
+
+// 14. Liste o nome e as avaliações dos restaurantes que obtiveram uma avaliação com um grade "A", um score 10 na data "2014-08-11T00: 00: 00Z" (ISODATE).
+db.restaurants.find(
+  {
+    "grades.grade": "A",
+    "grades.score": 10,
+    "grades.date": ISODate("2014-08-11T00:00:00Z"),
+  },
+  {
+    _id: 0,
+    nome: 1,
+    grades: 1,
+  }
+);
+// 10
+
+// 15. Liste o restaurant_id, o nome e os score dos restaurantes nos quais a segunda avaliação foi grade "A" e ocorreu em ISODATE "2014-08-11T00:00:00Z"
+db.restaurants.find(
+  {
+    "grades.1.grade": "A",
+    "grades.1.date": ISODate("2014-08-11T00:00:00Z"),
+  },
+  {
+    _id: 0,
+    restaurant_id: 1,
+    nome: 1,
+    "grades.score": 1,
+  }
+);
+// 2
+
+// 16. Liste o restaurant_id, o nome, o endereço (address) e as coordenadas geográficas (coord) dos restaurantes onde o 2º elemento da matriz de coordenadas tem um valor superior a 42 e inferior ou igual a 52.
+db.restaurants.find(
+  {
+    "address.coord.1": { $gt: 42, $lte: 52 },
+  },
+  {
+    _id: 0,
+    restaurant_id: 1,
+    nome: 1,
+    "address.rua": 1,
+    "address.coord": 1,
+  }
+);
+// 7
+// Uma vez que coord já se encontra dentro de address, o MongoDB retorna um erro ao devolver address e address.coord, já que estaria a retornar duas vezes as coordenadas. Assim, subentendi address como a rua
+
+// 17. Liste nome, gastronomia e localidade de todos os restaurantes ordenando por ordem crescente da gastronomia e, em segundo, por ordem decrescente de localidade.
+db.restaurants
+  .find(
+    {},
+    {
+      _id: 0,
+      nome: 1,
+      gastronomia: 1,
+      localidade: 1,
+    }
+  )
+  .sort({ gastronomia: 1, localidade: -1 });
+// 3772
+
+// 18. Liste nome, localidade, grade e gastronomia de todos os restaurantes localizados em Brooklyn que não incluem gastronomia "American" e obtiveram uma classificação (grade) "A". Deve apresentá-los por ordem decrescente de gastronomia.
+db.restaurants
+  .find(
+    {
+      localidade: "Brooklyn",
+      gastronomia: { $ne: "American" },
+      "grades.grade": "A",
+    },
+    {
+      _id: 0,
+      nome: 1,
+      gastronomia: 1,
+      localidade: 1,
+      "grades.grade": 1,
+    }
+  )
+  .sort({ gastronomia: -1 });
+// 493
+
+// 19. Indique o número total de avaliações (numGrades) na coleção.
+db.restaurants.aggregate([
+  {
+    $group: {
+      _id: null,
+      numGrades: {
+        $sum: { $size: "$grades" },
+      },
+    },
+  },
+]);
+// 18142
+// Full output:
+// [
+//   {
+//     "_id": null,
+//     "numGrades": 18142
+//   }
+// ]
+
+// 20. Apresente o nome e número de avaliações (numGrades) dos 3 restaurante com mais avaliações.
+db.restaurants.aggregate([
+  {
+    $group: {
+      _id: "$nome",
+      numGrades: {
+        $sum: { $size: "$grades" },
+      },
+    },
+  },
+  {
+    $sort: { numGrades: -1 },
+  },
+  {
+    $limit: 3,
+  },
+]);
+// [
+//   {
+//     "_id": "Starbucks Coffee",
+//     "numGrades": 424
+//   },
+//   {
+//     "_id": "Mcdonald'S",
+//     "numGrades": 385
+//   },
+//   {
+//     "_id": "Domino'S Pizza",
+//     "numGrades": 185
+//   }
+// ]
+
+// 21. Apresente o número total de avaliações (numGrades) em cada dia da semana.
+db.restaurants.aggregate([
+  {
+    $unwind: "$grades",
+  },
+  {
+    $group: {
+      _id: {
+        $dayOfWeek: "$grades.date",
+      },
+      numGrades: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $sort: {
+      _id: 1,
+    },
+  },
+]);
+// [
+//   {
+//     "_id": 1,
+//     "numGrades": 7
+//   },
+//   {
+//     "_id": 2,
+//     "numGrades": 3186
+//   },
+//   {
+//     "_id": 3,
+//     "numGrades": 3878
+//   },
+//   {
+//     "_id": 4,
+//     "numGrades": 4118
+//   },
+//   {
+//     "_id": 5,
+//     "numGrades": 3984
+//   },
+//   {
+//     "_id": 6,
+//     "numGrades": 2440
+//   },
+//   {
+//     "_id": 7,
+//     "numGrades": 529
+//   }
+// ]
+
+// 22. Conte o total de restaurante existentes em cada localidade.
+db.restaurants.aggregate([
+  {
+    $group: {
+      _id: "$localidade",
+      total: {
+        $sum: 1,
+      },
+    },
+  },
+]);
+// [
+//   {
+//     "_id": "Staten Island",
+//     "total": 158
+//   },
+//   {
+//     "_id": "Manhattan",
+//     "total": 1883
+//   },
+//   {
+//     "_id": "Queens",
+//     "total": 738
+//   },
+//   {
+//     "_id": "Bronx",
+//     "total": 309
+//   },
+//   {
+//     "_id": "Brooklyn",
+//     "total": 684
+//   }
+// ]
+
+// 23. Indique os restaurantes que têm gastronomia "Portuguese", o somatório de score é superior a 50 e estão numa latitude inferior a -60.
+db.restaurants.aggregate([
+  {
+    $match: {
+      gastronomia: "Portuguese",
+      "address.coord.0": {$lt: -60}
+    }
+  },
+  {
+    $unwind: "$grades",
+  },
+  {
+    $group: {
+      _id: "$restaurant_id",
+      totalScore: {
+        $sum: "$grades.score",
+      },
+    },
+  },
+  {
+    $match: { "totalScore": { $gt: 50 } }
+  },
+]);
+// [
+//   {
+//     "_id": "40535455",
+//     "totalScore": 80
+//   },
+//   {
+//     "_id": "40394518",
+//     "totalScore": 67
+//   }
+// ]
