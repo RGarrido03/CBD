@@ -125,8 +125,7 @@ db.restaurants.find(
     _id: 0,
     restaurant_id: 1,
     nome: 1,
-    "address.rua": 1,
-    "address.coord": 1,
+    address: 1,
   }
 );
 // 7
@@ -308,8 +307,8 @@ db.restaurants.aggregate([
   {
     $match: {
       gastronomia: "Portuguese",
-      "address.coord.0": {$lt: -60}
-    }
+      "address.coord.0": { $lt: -60 },
+    },
   },
   {
     $unwind: "$grades",
@@ -323,7 +322,7 @@ db.restaurants.aggregate([
     },
   },
   {
-    $match: { "totalScore": { $gt: 50 } }
+    $match: { totalScore: { $gt: 50 } },
   },
 ]);
 // [
@@ -336,3 +335,203 @@ db.restaurants.aggregate([
 //     "totalScore": 67
 //   }
 // ]
+
+// 24. Apresente o número de gastronomias diferentes na rua "Fifth Avenue"
+db.restaurants.aggregate([
+  {
+    $match: {
+      "address.rua": "Fifth Avenue",
+    },
+  },
+  {
+    $group: {
+      _id: "$gastronomia",
+      totalRestaurants: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $group: {
+      _id: null,
+      totalGastronomies: {
+        $sum: 1,
+      },
+    },
+  },
+]);
+// 4
+// [
+//   {
+//     "_id": null,
+//     "totalGastronomies": 4
+//   }
+// ]
+
+// 25. Apresente o nome e o score médio (avgScore) e número de avaliações (numGrades) dos restaurantes com score médio superior a 30 desde 1-Jan-2014.
+db.restaurants.aggregate([
+  {
+    $unwind: "$grades",
+  },
+  {
+    $match: {
+      "grades.date": { $gt: ISODate("2014-01-01T00:00:00Z") },
+    },
+  },
+  {
+    $group: {
+      _id: "$nome",
+      avgScore: {
+        $avg: "$grades.score",
+      },
+      numGrades: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $match: {
+      avgScore: { $gt: 30 },
+    },
+  },
+]);
+// 30
+// Example of object in array
+// {
+//   "_id": "Times Deli & Cafe",
+//   "avgScore": 34.5,
+//   "numGrades": 2
+// }
+
+// 26. Apresente o nome e o score mediano dos restaurantes cujo score é superior a 10 e que estejam localizados numa latitude superior a -50.
+db.restaurants.aggregate([
+  {
+    $unwind: "$address",
+  },
+  {
+    $match: {
+      "address.coord.0": { $gte: -50 },
+    },
+  },
+  {
+    $unwind: "$grades",
+  },
+  {
+    $group: {
+      _id: "$nome",
+      medianScore: {
+        $median: {
+          input: "$grades.score",
+          method: "approximate",
+        },
+      },
+    },
+  },
+  {
+    $match: {
+      medianScore: { $gt: 10 },
+    },
+  },
+]);
+// [
+//   {
+//     "_id": "Master Wok",
+//     "medianScore": 13
+//   },
+//   {
+//     "_id": "Dining Room",
+//     "medianScore": 13
+//   }
+// ]
+
+// 27. Apresente o nome e o score médio dos três melhores restaurantes em Staten Island
+db.restaurants.aggregate([
+  {
+    $match: {
+      localidade: "Staten Island",
+    },
+  },
+  {
+    $unwind: "$grades",
+  },
+  {
+    $group: {
+      _id: "$nome",
+      avgScore: {
+        $avg: "$grades.score",
+      },
+    },
+  },
+  {
+    $sort: {
+      avgScore: -1,
+    },
+  },
+  {
+    $limit: 3,
+  },
+]);
+// [
+//   {
+//     "_id": "La Candela Espanola",
+//     "avgScore": 30
+//   },
+//   {
+//     "_id": "Curves Gentleman'S Club",
+//     "avgScore": 20.25
+//   },
+//   {
+//     "_id": "Chuck E Cheese'S",
+//     "avgScore": 19.333333333333332
+//   }
+// ]
+
+// 28. Liste por ordem decrescente o número de restaurantes por cidade
+db.restaurants.aggregate([
+  {
+    $group: {
+      _id: "$localidade",
+      sumRestaurants: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $sort: {
+      sumRestaurants: -1,
+    },
+  },
+]);
+// [
+//   {
+//     "_id": "Manhattan",
+//     "sumRestaurants": 1883
+//   },
+//   {
+//     "_id": "Queens",
+//     "sumRestaurants": 738
+//   },
+//   {
+//     "_id": "Brooklyn",
+//     "sumRestaurants": 684
+//   },
+//   {
+//     "_id": "Bronx",
+//     "sumRestaurants": 309
+//   },
+//   {
+//     "_id": "Staten Island",
+//     "sumRestaurants": 158
+//   }
+// ]
+
+// 29. Liste o id e o nome dos restaurantes cujo zip code segue o padrão 10xxx.
+db.restaurants.find(
+  { "address.zipcode": { $regex: "10[0-9]{3}" } },
+  { _id: 0, nome: 1, restaurant_id: 1 }
+);
+// 2348
+
+// 30. Apresente o nome dos restaurantes cujo nome possui uma palavra começada por A.
+db.restaurants.find({ nome: { $regex: "Aw*" } }, { _id: 0, nome: 1 });
+// 373
