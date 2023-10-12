@@ -89,9 +89,13 @@ db.restaurants.find(
 // 14. Liste o nome e as avaliações dos restaurantes que obtiveram uma avaliação com um grade "A", um score 10 na data "2014-08-11T00: 00: 00Z" (ISODATE).
 db.restaurants.find(
   {
-    "grades.grade": "A",
-    "grades.score": 10,
-    "grades.date": ISODate("2014-08-11T00:00:00Z"),
+    "grades": {
+      $elemMatch: {
+        "grade": "A",
+        "score": 10,
+        "date": ISODate("2014-08-11T00:00:00Z")
+      }
+    }
   },
   {
     _id: 0,
@@ -99,7 +103,7 @@ db.restaurants.find(
     grades: 1,
   }
 );
-// 10
+// 6
 
 // 15. Liste o restaurant_id, o nome e os score dos restaurantes nos quais a segunda avaliação foi grade "A" e ocorreu em ISODATE "2014-08-11T00:00:00Z"
 db.restaurants.find(
@@ -486,15 +490,20 @@ db.restaurants.aggregate([
 //   }
 // ]
 
-// 28. Liste por ordem decrescente o número de restaurantes por cidade
+// 28. Liste por ordem decrescente o número de restaurantes por cadeia de restauração (p.e., listar o número de McDonald's)
 db.restaurants.aggregate([
   {
     $group: {
-      _id: "$localidade",
+      _id: "$nome",
       sumRestaurants: {
         $sum: 1,
       },
     },
+  },
+  {
+    $match: {
+      sumRestaurants: { $gt: 1 }
+    }
   },
   {
     $sort: {
@@ -504,34 +513,23 @@ db.restaurants.aggregate([
 ]);
 // [
 //   {
-//     "_id": "Manhattan",
-//     "sumRestaurants": 1883
+//     "_id": "Starbucks Coffee",
+//     "sumRestaurants": 104
 //   },
 //   {
-//     "_id": "Queens",
-//     "sumRestaurants": 738
+//     "_id": "McDonald's",
+//     "sumRestaurants": 104
 //   },
-//   {
-//     "_id": "Brooklyn",
-//     "sumRestaurants": 684
-//   },
-//   {
-//     "_id": "Bronx",
-//     "sumRestaurants": 309
-//   },
-//   {
-//     "_id": "Staten Island",
-//     "sumRestaurants": 158
-//   }
+//   ...
 // ]
 
-// 29. Liste o id e o nome dos restaurantes cujo zip code segue o padrão 10xxx.
+// 29. Liste o id e o nome dos restaurantes cujo código postal segue o padrão 10xxx.
 db.restaurants.find(
   { "address.zipcode": { $regex: "10[0-9]{3}" } },
   { _id: 0, nome: 1, restaurant_id: 1 }
 );
 // 2348
 
-// 30. Apresente o nome dos restaurantes cujo nome possui uma palavra começada por A.
-db.restaurants.find({ nome: { $regex: "Aw*" } }, { _id: 0, nome: 1 });
+// 30. Apresente o nome dos restaurantes cujo nome começa em A.
+db.restaurants.find({ nome: { $regex: "^A.*" } }, { _id: 0, nome: 1 });
 // 373
