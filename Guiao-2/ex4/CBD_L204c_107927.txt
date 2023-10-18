@@ -1,0 +1,8 @@
+MongoDB e Redis são bases de dados NoSQL com estruturas diferentes. Ambas têm as suas vantagens e desvantagens, e a escolha entre ambas recai nas necessidades específicas de cada projeto.
+
+Por um lado, o MongoDB armazena os dados no formato BSON (i.e., Binary JSON), onde, tal como em JSON, é permitido o armazenamento e manipulação de uma grande variedade de tipos de dados. Este suporta queries complexas, permitindo a consulta de documentos por uma ou várias chaves, intervalos ou pesquisa de texto. Além disso, e à semelhança das bases de dados SQL, o MongoDB também suporta a criação de índices, aumentando o desempenho das queries.
+
+Por outro lado, o Redis é uma base de dados do estilo key-value, onde estão disponíveis algumas estruturas de dados, tais como sets, listas e mapas. Esta prima sobretudo pela sua performance, uma vez que maior parte das operações são efetuadas na memória.
+No entanto, ao contrário do MongoDB, todos os valores (independentemente de serem a key ou o value) têm de ser uma string, e não é possível fazer nesting de estruturas de dados. Não obstante, o Redis possui um conjunto de funcionalidades mais limitada, e estas permitem uma flexibilidade bem inferior face ao Mongo.
+
+Relativamente à escolha entre ambos os SGBDs, é preciso notar que não existe um "melhor". Se o projeto requerer uma base de dados geral com a possibilidade de queries complexas, o MongoDB pode ser a melhor escolha. No entanto, para estruturas de dados mais simples, o alto desempenho do Redis pode ser mais adequado.
