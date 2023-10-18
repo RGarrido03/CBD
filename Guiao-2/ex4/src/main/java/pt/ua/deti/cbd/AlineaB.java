@@ -20,9 +20,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class AlineaA {
-    private static final int LIMIT = 30;
-    private static final int TIMESLOT = 60;
+public class AlineaB {
+    private static final int LIMIT = 3;
+    private static final int TIMESLOT = 1;
 
     private static final String uri = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000";
     private static final MongoClient mongoClient = MongoClients.create(uri);
@@ -33,7 +33,7 @@ public class AlineaA {
 
     static {
         try {
-            printWriter = new PrintWriter("CBD_L204a-out_107927.txt");
+            printWriter = new PrintWriter("CBD_L204b-out_107927.txt");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -44,11 +44,13 @@ public class AlineaA {
         printWriter.println(string);
     }
 
-    private static int getOrdersInTime(String input) {
-        List<Bson> pipeline = Arrays.asList(Aggregates.match(Filters.eq("name", input)), Aggregates.unwind("$orders"),
-                                            Aggregates.match(
-                                                    Filters.gt("orders", LocalDateTime.now().minusMinutes(TIMESLOT))),
-                                            Aggregates.group("$_id", Accumulators.sum("count", 1)));
+    private static int getProductsInTime(String input) {
+        List<Bson> pipeline = Arrays.asList(
+                Aggregates.match(Filters.eq("name", input)),
+                Aggregates.unwind("$orders"),
+                Aggregates.match(Filters.gt("orders.timestamp", LocalDateTime.now().minusMinutes(TIMESLOT))),
+                Aggregates.group("$_id", Accumulators.sum("count", "$orders.number"))
+        );
 
         Document doc = collection.aggregate(pipeline).first();
 
@@ -65,42 +67,46 @@ public class AlineaA {
         Scanner sc = new Scanner(System.in);
         collection.drop();
 
-        String input;
+        String nameInput;
+        int productsInput;
 
         while (true) {
             System.out.print("\nInput the name: ");
-            input = sc.nextLine().toLowerCase().replace(" ", "_");
+            nameInput = sc.nextLine().toLowerCase().replace(" ", "_");
 
             // Break condition
-            if (input.isEmpty()) {
+            if (nameInput.isEmpty()) {
                 printlnToFileAndSout("Exiting...");
                 break;
             }
 
-            Document doc = collection.find(Filters.eq("name", input)).first();
+            System.out.print("Input the number of products: ");
+            productsInput = Integer.parseInt(sc.nextLine());
+
+            Document doc = collection.find(Filters.eq("name", nameInput)).first();
 
             if (doc == null) {
                 InsertOneResult insertResult = collection.insertOne(
-                        new Document("name", input).append("orders", List.of(LocalDateTime.now())));
+                        new Document("name", nameInput).append("orders", List.of(new Document("timestamp", LocalDateTime.now()).append("number", productsInput))));
 
                 if (insertResult.wasAcknowledged()) {
-                    printlnToFileAndSout("Added! Current orders for " + input + ": 1");
+                    printlnToFileAndSout("Added! Current orders for " + nameInput + ": " + productsInput);
                 } else {
-                    printlnToFileAndSout("Adding order failed. Current orders for " + input + ": 0");
+                    printlnToFileAndSout("Adding order failed. Current orders for " + nameInput + ": 0");
                 }
                 continue;
             }
 
-            int ordersInTime = getOrdersInTime(input);
+            int productsInTime = getProductsInTime(nameInput);
 
-            if (ordersInTime < LIMIT) {
+            if (productsInTime < LIMIT) {
                 UpdateResult updateResult =
-                        collection.updateOne(new Document("name", input), Updates.push("orders", LocalDateTime.now()));
+                        collection.updateOne(new Document("name", nameInput), Updates.push("orders", new Document("timestamp", LocalDateTime.now()).append("number", productsInput)));
 
                 if (updateResult.wasAcknowledged()) {
-                    printlnToFileAndSout("Updated! Current orders for " + input + ": " + (ordersInTime + 1));
+                    printlnToFileAndSout("Updated! Current orders for " + nameInput + ": " + (productsInTime + 1));
                 } else {
-                    printlnToFileAndSout("Update failed. Current orders for " + input + ": " + ordersInTime);
+                    printlnToFileAndSout("Update failed. Current orders for " + nameInput + ": " + productsInTime);
                 }
             } else {
                 printlnToFileAndSout("Rate limit exceeded!");

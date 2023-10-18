@@ -1,0 +1,23 @@
+
+Input the name: ruben
+Input the number of products: 2
+Added! Current orders for ruben: 2
+
+Input the name: ruben
+Input the number of products: 1
+Updated! Current orders for ruben: 3
+
+Input the name: ruben
+Input the number of products: 1
+Rate limit exceeded!
+
+Input the name: ruben
+Input the number of products: 2
+Rate limit exceeded!
+
+Input the name: ruben
+Input the number of products: 1
+Updated! Current orders for ruben: 1
+
+Input the name:
+Exiting...
