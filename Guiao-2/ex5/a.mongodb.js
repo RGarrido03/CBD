@@ -4,14 +4,15 @@ function capicua() {
   db.phones.find().forEach(function (doc) {
     let n = doc["components"]["number"].toString();
 
-    for (i = 0; i < n.length / 2; i++) {
-      if (n[i] != n[-1 - i]) {
-        console.log(n, "false");
-        continue;
+    for (i = 0; i < Math.floor(n.length / 2); i++) {
+      if (n[i] != n[n.length - i - 1]) {
+        break;
+      }
+      if (i == Math.floor(n.length / 2) - 1) {
+        capicuaArray.push(n);
       }
     }
-    capicuaArray.push(n);
   });
 
-  return capicuaArray
+  return capicuaArray;
 }

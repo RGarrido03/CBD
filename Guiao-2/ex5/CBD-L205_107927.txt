@@ -1,17 +1,19 @@
 // c)
-db.phones.aggregate([
-  {
-    $unwind: "$components",
-  },
-  {
-    $group: {
-      _id: "$components.prefix",
-      count: {
-        $sum: 1,
+function countPrefix() {
+  db.phones.aggregate([
+    {
+      $unwind: "$components",
+    },
+    {
+      $group: {
+        _id: "$components.prefix",
+        count: {
+          $sum: 1,
+        },
       },
     },
-  },
-]);
+  ]);
+}
 // [
 //   { _id: 233, count: 33394 },
 //   { _id: 21, count: 33259 },
