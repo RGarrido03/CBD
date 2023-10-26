@@ -83,7 +83,7 @@ public class AlineaB {
             System.out.print("Input the number of products: ");
             productsInput = Integer.parseInt(sc.nextLine());
 
-            Document doc = collection.find(Filters.eq("name", nameInput)).first();
+            Document doc = collection.find(Filters.eq("name", nameInput)).limit(1).first();
 
             if (doc == null) {
                 InsertOneResult insertResult = collection.insertOne(
