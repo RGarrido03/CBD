@@ -1,0 +1,210 @@
+-- Keyspace
+DROP KEYSPACE IF EXISTS CBD_LAB3;
+CREATE KEYSPACE CBD_LAB3 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+USE CBD_LAB3;
+
+
+-- Table
+CREATE TABLE EMP
+(
+    emp_id    int PRIMARY KEY,
+    emp_name  text,
+    emp_city  text,
+    emp_sal   varint,
+    emp_phone varint
+);
+
+
+-- Email
+ALTER TABLE emp
+    ADD emp_email text;
+ALTER TABLE emp
+    DROP emp_email;
+
+
+-- DESCRIBE CBD_LAB3;
+/*
++-------------+--------+--------+------------------------------------------------------------------------------------------------------------------------------------------+
+|keyspace_name|type    |name    |create_statement                                                                                                                          |
++-------------+--------+--------+------------------------------------------------------------------------------------------------------------------------------------------+
+|cbd_lab3     |keyspace|cbd_lab3|CREATE KEYSPACE cbd_lab3 WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;            |
+|cbd_lab3     |table   |emp     |CREATE TABLE cbd_lab3.emp (                                                                                                               |
+|             |        |        |emp_id int PRIMARY KEY,                                                                                                                   |
+|             |        |        |emp_city text,                                                                                                                            |
+|             |        |        |emp_name text,                                                                                                                            |
+|             |        |        |emp_phone varint,                                                                                                                         |
+|             |        |        |emp_sal varint                                                                                                                            |
+|             |        |        |) WITH additional_write_policy = '99p'                                                                                                    |
+|             |        |        |AND bloom_filter_fp_chance = 0.01                                                                                                         |
+|             |        |        |AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}                                                                               |
+|             |        |        |AND cdc = false                                                                                                                           |
+|             |        |        |AND comment = ''                                                                                                                          |
+|             |        |        |AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}|
+|             |        |        |AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}                                 |
+|             |        |        |AND memtable = 'default'                                                                                                                  |
+|             |        |        |AND crc_check_chance = 1.0                                                                                                                |
+|             |        |        |AND default_time_to_live = 0                                                                                                              |
+|             |        |        |AND extensions = {}                                                                                                                       |
+|             |        |        |AND gc_grace_seconds = 864000                                                                                                             |
+|             |        |        |AND max_index_interval = 2048                                                                                                             |
+|             |        |        |AND memtable_flush_period_in_ms = 0                                                                                                       |
+|             |        |        |AND min_index_interval = 128                                                                                                              |
+|             |        |        |AND read_repair = 'BLOCKING'                                                                                                              |
+|             |        |        |AND speculative_retry = '99p';                                                                                                            |
+|cbd_lab3     |index   |name    |CREATE INDEX name ON cbd_lab3.emp (emp_name);                                                                                             |
++-------------+--------+--------+------------------------------------------------------------------------------------------------------------------------------------------+
+*/
+
+
+-- Create index
+CREATE INDEX name ON EMP (emp_name);
+
+
+-- Insert data
+INSERT INTO emp (emp_id, emp_name, emp_city, emp_phone, emp_sal)
+VALUES (1, 'ram', 'Hyderabad', 9848022338, 50000);
+
+INSERT INTO emp (emp_id, emp_name, emp_city, emp_phone, emp_sal)
+VALUES (2, 'robin', 'Hyderabad', 9848022339, 40000);
+
+INSERT INTO emp (emp_id, emp_name, emp_city, emp_phone, emp_sal)
+VALUES (3, 'rahman', 'Chennai', 9848022330, 45000);
+
+SELECT *
+FROM emp;
+/*
++------+---------+--------+----------+-------+
+|emp_id|emp_city |emp_name|emp_phone |emp_sal|
++------+---------+--------+----------+-------+
+|1     |Hyderabad|ram     |9848022338|50000  |
+|2     |Hyderabad|robin   |9848022339|40000  |
+|3     |Chennai  |rahman  |9848022330|45000  |
++------+---------+--------+----------+-------+
+*/
+
+
+-- Update a value
+UPDATE emp
+SET emp_city='Delhi',
+    emp_sal=50000
+WHERE emp_id = 2;
+
+SELECT *
+FROM emp;
+/*
++------+---------+--------+----------+-------+
+|emp_id|emp_city |emp_name|emp_phone |emp_sal|
++------+---------+--------+----------+-------+
+|1     |Hyderabad|ram     |9848022338|50000  |
+|2     |Delhi    |robin   |9848022339|50000  |
+|3     |Chennai  |rahman  |9848022330|45000  |
++------+---------+--------+----------+-------+
+*/
+
+
+-- Delete a value
+DELETE emp_sal
+FROM emp
+WHERE emp_id = 3;
+SELECT *
+FROM emp;
+/*
++------+---------+--------+----------+-------+
+|emp_id|emp_city |emp_name|emp_phone |emp_sal|
++------+---------+--------+----------+-------+
+|1     |Hyderabad|ram     |9848022338|50000  |
+|2     |Delhi    |robin   |9848022339|50000  |
+|3     |Chennai  |rahman  |9848022330|null   |
++------+---------+--------+----------+-------+
+*/
+
+
+-- Delete a row
+DELETE
+FROM emp
+WHERE emp_id = 3;
+SELECT *
+FROM emp;
+/*
++------+---------+--------+----------+-------+
+|emp_id|emp_city |emp_name|emp_phone |emp_sal|
++------+---------+--------+----------+-------+
+|1     |Hyderabad|ram     |9848022338|50000  |
+|2     |Delhi    |robin   |9848022339|50000  |
++------+---------+--------+----------+-------+
+*/
+
+
+-- List
+CREATE TABLE data
+(
+    name  text PRIMARY KEY,
+    email list<text>
+);
+
+INSERT INTO data(name, email)
+VALUES ('ramu', ['abc@gmail.com','cba@yahoo.com']);
+
+UPDATE data
+SET email = email + ['xyz@tutorialspoint.com']
+where name = 'ramu';
+
+SELECT *
+FROM data;
+/*
++----+------------------------------------------------------------+
+|name|email                                                       |
++----+------------------------------------------------------------+
+|ramu|['abc@gmail.com', 'cba@yahoo.com', 'xyz@tutorialspoint.com']|
++----+------------------------------------------------------------+
+*/
+
+
+-- Set
+CREATE TABLE data2
+(
+    name  text PRIMARY KEY,
+    phone set<varint>
+);
+
+INSERT INTO data2(name, phone)
+VALUES ('rahman', {9848022338,9848022339});
+
+UPDATE data2
+SET phone = phone + {9848022330}
+where name = 'rahman';
+
+SELECT *
+FROM data2;
+/*
++------+------------------------------------+
+|name  |phone                               |
++------+------------------------------------+
+|rahman|{9848022330, 9848022338, 9848022339}|
++------+------------------------------------+
+*/
+
+
+-- Map
+CREATE TABLE data3
+(
+    name    text PRIMARY KEY,
+    address map<text, text>
+);
+
+INSERT INTO data3 (name, address)
+VALUES ('robin', {'home' : 'hyderabad' , 'office' : 'Delhi' });
+
+UPDATE data3
+SET address = address + {'office':'mumbai'}
+WHERE name = 'robin';
+
+SELECT *
+FROM data3;
+/*
++-----+-----------------------------------------+
+|name |address                                  |
++-----+-----------------------------------------+
+|robin|{'home': 'hyderabad', 'office': 'mumbai'}|
++-----+-----------------------------------------+
+*/

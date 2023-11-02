@@ -1,11 +1,8 @@
+version: '3.9'
 services:
-  cass_cluster:
+  cassandra:
     image: cassandra:latest
     ports:
       - "9042:9042"
     volumes:
-      - cassandra_data:/var/lib/cassandra
-
-volumes:
-  cassandra_data:
-    driver: local
+      - ./resources:/resources
