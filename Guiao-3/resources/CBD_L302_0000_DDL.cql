@@ -113,7 +113,7 @@ CREATE TABLE EVENT
 
     event             VARCHAR,
     time              TIMESTAMP,
-    video_time        INT,
+    video_time        DOUBLE,
 
     PRIMARY KEY ( (author_username, video_id), username, time )
 );
