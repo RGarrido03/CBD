@@ -9,7 +9,7 @@ CREATE TABLE USER
     username      VARCHAR PRIMARY KEY,
     name          VARCHAR,
     email         VARCHAR,
-    register_date TIMEUUID
+    register_date TIMESTAMP
 );
 
 
@@ -44,7 +44,7 @@ CREATE TABLE COMMENT_BY_AUTHOR
     comment_author_username      VARCHAR,
     comment_author_name          VARCHAR,
     comment_author_email         VARCHAR,
-    comment_author_register_date TIMEUUID,
+    comment_author_register_date TIMESTAMP,
 
     video_author_username        VARCHAR,
     video_id                     UUID,
@@ -81,7 +81,7 @@ CREATE TABLE VIDEO_FOLLOWERS
     follower_username      VARCHAR,
     follower_name          VARCHAR,
     follower_email         VARCHAR,
-    follower_register_date TIMEUUID,
+    follower_register_date TIMESTAMP,
 
     -- Video denormalization
     author_username        VARCHAR,
@@ -101,7 +101,7 @@ CREATE TABLE EVENT
     username          VARCHAR,
     name              VARCHAR,
     email             VARCHAR,
-    register_date     TIMEUUID,
+    register_date     TIMESTAMP,
 
     -- Video denormalization
     author_username   VARCHAR,
