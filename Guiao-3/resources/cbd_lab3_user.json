@@ -1,0 +1,62 @@
+[
+  {
+    "username": "beatrizoliveira",
+    "email": "beatriz.oliveira@example.com",
+    "name": "Beatriz Oliveira",
+    "register_date": "2022-02-05 01:02:03.004"
+  },
+  {
+    "username": "ruialmeida",
+    "email": "rui.almeida@example.com",
+    "name": "Rui Almeida",
+    "register_date": "2023-04-17 18:19:20.021"
+  },
+  {
+    "username": "joaosilva",
+    "email": "joao.silva@example.com",
+    "name": "João Silva",
+    "register_date": "2023-01-31 23:45:12.345"
+  },
+  {
+    "username": "carlospereira",
+    "email": "carlos.pereira@example.com",
+    "name": "Carlos Pereira",
+    "register_date": "2022-09-30 09:08:07.654"
+  },
+  {
+    "username": "catarinarodrigues",
+    "email": "catarina.rodrigues@example.com",
+    "name": "Catarina Rodrigues",
+    "register_date": "2023-02-03 04:05:06.007"
+  },
+  {
+    "username": "margaridacosta",
+    "email": "margarida.costa@example.com",
+    "name": "Margarida Costa",
+    "register_date": "2023-10-16 17:18:19.020"
+  },
+  {
+    "username": "mariasouza",
+    "email": "maria.souza@example.com",
+    "name": "Maria Souza",
+    "register_date": "2023-05-12 12:34:56.789"
+  },
+  {
+    "username": "ricardofernandes",
+    "email": "ricardo.fernandes@example.com",
+    "name": "Ricardo Fernandes",
+    "register_date": "2022-01-01 00:00:00.000"
+  },
+  {
+    "username": "anacosta",
+    "email": "ana.costa@example.com",
+    "name": "Ana Costa",
+    "register_date": "2022-12-31 23:59:59.999"
+  },
+  {
+    "username": "pedromartins",
+    "email": "pedro.martins@example.com",
+    "name": "Pedro Martins",
+    "register_date": "2023-03-04 05:06:07.008"
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "author_username": "anacosta",
+    "video_id": "8fc80794-fb45-4de7-ad65-c691c2b159eb",
+    "rating": 5,
+    "video_description": "Descrição do vídeo da Ana",
+    "video_name": "Vídeo da Ana",
+    "video_tag": ["tag1"],
+    "video_upload_time": "2023-01-10 12:23:34.223"
+  },
+  {
+    "author_username": "ruialmeida",
+    "video_id": "c553d808-ea99-41cb-837e-c35a199ed3ed",
+    "rating": 2,
+    "video_description": "Descrição do vídeo do Rui",
+    "video_name": "Vídeo do Rui",
+    "video_tag": ["tag2", "tag4"],
+    "video_upload_time": "2023-06-30 11:00:00.001"
+  },
+  {
+    "author_username": "ruialmeida",
+    "video_id": "c553d808-ea99-41cb-837e-c35a199ed3ed",
+    "rating": 4,
+    "video_description": "Descrição do vídeo do Rui",
+    "video_name": "Vídeo do Rui",
+    "video_tag": ["tag2", "tag4"],
+    "video_upload_time": "2023-06-30 11:00:00.001"
+  },
+  {
+    "author_username": "beatrizoliveira",
+    "video_id": "cf54e676-4aaf-40e5-bd3a-b3a842a893f4",
+    "rating": 4,
+    "video_description": "Descrição do vídeo da Beatriz",
+    "video_name": "Vídeo da Beatriz",
+    "video_tag": ["tag1", "tag3"],
+    "video_upload_time": "2023-03-24 16:45:22.345"
+  },
+  {
+    "author_username": "beatrizoliveira",
+    "video_id": "cf54e676-4aaf-40e5-bd3a-b3a842a893f4",
+    "rating": 5,
+    "video_description": "Descrição do vídeo da Beatriz",
+    "video_name": "Vídeo da Beatriz",
+    "video_tag": ["tag1", "tag3"],
+    "video_upload_time": "2023-03-24 16:45:22.345"
+  },
+  {
+    "author_username": "carlospereira",
+    "video_id": "86aafb44-6fc7-488e-85ba-8631fe66a97c",
+    "rating": 2,
+    "video_description": "Descrição do vídeo do Carlos",
+    "video_name": "Vídeo do Carlos",
+    "video_tag": ["tag2", "tag3", "tag4"],
+    "video_upload_time": "2022-10-01 00:00:00.000"
+  },
+  {
+    "author_username": "carlospereira",
+    "video_id": "86aafb44-6fc7-488e-85ba-8631fe66a97c",
+    "rating": 3,
+    "video_description": "Descrição do vídeo do Carlos",
+    "video_name": "Vídeo do Carlos",
+    "video_tag": ["tag2", "tag3", "tag4"],
+    "video_upload_time": "2022-10-01 00:00:00.000"
+  },
+  {
+    "author_username": "ricardofernandes",
+    "video_id": "5576245c-f401-4688-a295-95d012e32000",
+    "rating": 4,
+    "video_description": "Descrição do vídeo do Ricardo",
+    "video_name": "Vídeo do Ricardo",
+    "video_tag": ["tag3", "tag4"],
+    "video_upload_time": "2022-01-02 00:00:00.000"
+  },
+  {
+    "author_username": "joaosilva",
+    "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "rating": 4,
+    "video_description": "Descrição do vídeo do João",
+    "video_name": "Vídeo do João",
+    "video_tag": ["tag1", "tag2"],
+    "video_upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "joaosilva",
+    "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "rating": 5,
+    "video_description": "Descrição do vídeo do João",
+    "video_name": "Vídeo do João",
+    "video_tag": ["tag1", "tag2"],
+    "video_upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "pedromartins",
+    "video_id": "97a647e1-cb0f-4698-83ee-5415320c4591",
+    "rating": 3,
+    "video_description": "Descrição do vídeo do Pedro",
+    "video_name": "Vídeo do Pedro",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-09-01 08:34:27.000"
+  },
+  {
+    "author_username": "pedromartins",
+    "video_id": "97a647e1-cb0f-4698-83ee-5415320c4591",
+    "rating": 4,
+    "video_description": "Descrição do vídeo do Pedro",
+    "video_name": "Vídeo do Pedro",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-09-01 08:34:27.000"
+  },
+  {
+    "author_username": "pedromartins",
+    "video_id": "97a647e1-cb0f-4698-83ee-5415320c4591",
+    "rating": 5,
+    "video_description": "Descrição do vídeo do Pedro",
+    "video_name": "Vídeo do Pedro",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-09-01 08:34:27.000"
+  },
+  {
+    "author_username": "mariasouza",
+    "video_id": "db72a1e5-c706-41ba-85b1-198e6f9061f4",
+    "rating": 4,
+    "video_description": "Descrição do vídeo da Maria",
+    "video_name": "Vídeo da Maria",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-05-12 15:00:00.000"
+  },
+  {
+    "author_username": "mariasouza",
+    "video_id": "db72a1e5-c706-41ba-85b1-198e6f9061f4",
+    "rating": 5,
+    "video_description": "Descrição do vídeo da Maria",
+    "video_name": "Vídeo da Maria",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-05-12 15:00:00.000"
+  },
+  {
+    "author_username": "catarinarodrigues",
+    "video_id": "0d5a8fbd-7b6c-4715-ac71-9ce9a75b9352",
+    "rating": 1,
+    "video_description": "Descrição do vídeo da Catarina",
+    "video_name": "Vídeo da Catarina",
+    "video_tag": ["tag4"],
+    "video_upload_time": "2023-02-04 15:00:00.345"
+  },
+  {
+    "author_username": "catarinarodrigues",
+    "video_id": "0d5a8fbd-7b6c-4715-ac71-9ce9a75b9352",
+    "rating": 3,
+    "video_description": "Descrição do vídeo da Catarina",
+    "video_name": "Vídeo da Catarina",
+    "video_tag": ["tag4"],
+    "video_upload_time": "2023-02-04 15:00:00.345"
+  },
+  {
+    "author_username": "margaridacosta",
+    "video_id": "88e52b88-5d06-4621-a71b-4405252fab4a",
+    "rating": 5,
+    "video_description": "Descrição do vídeo da Margarida",
+    "video_name": "Vídeo da Margarida",
+    "video_tag": ["tag1", "tag4"],
+    "video_upload_time": "2023-11-17 12:04:24.456"
+  }
+]

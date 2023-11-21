@@ -1,0 +1,82 @@
+[
+  {
+    "author_username": "beatrizoliveira",
+    "id": "cf54e676-4aaf-40e5-bd3a-b3a842a893f4",
+    "description": "Descrição do vídeo da Beatriz",
+    "name": "Vídeo da Beatriz",
+    "tag": ["tag1", "tag3"],
+    "upload_time": "2023-03-24 16:45:22.345"
+  },
+  {
+    "author_username": "ruialmeida",
+    "id": "c553d808-ea99-41cb-837e-c35a199ed3ed",
+    "description": "Descrição do vídeo do Rui",
+    "name": "Vídeo do Rui",
+    "tag": ["tag2", "tag4"],
+    "upload_time": "2023-06-30 11:00:00.001"
+  },
+  {
+    "author_username": "joaosilva",
+    "id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "description": "Descrição do vídeo do João",
+    "name": "Vídeo do João",
+    "tag": ["tag1", "tag2"],
+    "upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "carlospereira",
+    "id": "86aafb44-6fc7-488e-85ba-8631fe66a97c",
+    "description": "Descrição do vídeo do Carlos",
+    "name": "Vídeo do Carlos",
+    "tag": ["tag2", "tag3", "tag4"],
+    "upload_time": "2022-10-01 00:00:00.000"
+  },
+  {
+    "author_username": "catarinarodrigues",
+    "id": "0d5a8fbd-7b6c-4715-ac71-9ce9a75b9352",
+    "description": "Descrição do vídeo da Catarina",
+    "name": "Vídeo da Catarina",
+    "tag": ["tag4"],
+    "upload_time": "2023-02-04 15:00:00.345"
+  },
+  {
+    "author_username": "margaridacosta",
+    "id": "88e52b88-5d06-4621-a71b-4405252fab4a",
+    "description": "Descrição do vídeo da Margarida",
+    "name": "Vídeo da Margarida",
+    "tag": ["tag1", "tag4"],
+    "upload_time": "2023-11-17 12:04:24.456"
+  },
+  {
+    "author_username": "mariasouza",
+    "id": "db72a1e5-c706-41ba-85b1-198e6f9061f4",
+    "description": "Descrição do vídeo da Maria",
+    "name": "Vídeo da Maria",
+    "tag": ["tag2", "tag3"],
+    "upload_time": "2023-05-12 15:00:00.000"
+  },
+  {
+    "author_username": "ricardofernandes",
+    "id": "5576245c-f401-4688-a295-95d012e32000",
+    "description": "Descrição do vídeo do Ricardo",
+    "name": "Vídeo do Ricardo",
+    "tag": ["tag3", "tag4"],
+    "upload_time": "2022-01-02 00:00:00.000"
+  },
+  {
+    "author_username": "anacosta",
+    "id": "8fc80794-fb45-4de7-ad65-c691c2b159eb",
+    "description": "Descrição do vídeo da Ana",
+    "name": "Vídeo da Ana",
+    "tag": ["tag1"],
+    "upload_time": "2023-01-10 12:23:34.223"
+  },
+  {
+    "author_username": "pedromartins",
+    "id": "97a647e1-cb0f-4698-83ee-5415320c4591",
+    "description": "Descrição do vídeo do Pedro",
+    "name": "Vídeo do Pedro",
+    "tag": ["tag2", "tag3"],
+    "upload_time": "2023-09-01 08:34:27.000"
+  }
+]

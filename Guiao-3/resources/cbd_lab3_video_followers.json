@@ -1,0 +1,122 @@
+[
+  {
+    "author_username": "anacosta",
+    "video_id": "8fc80794-fb45-4de7-ad65-c691c2b159eb",
+    "follower_username": "beatrizoliveira",
+    "follower_email": "beatriz.oliveira@example.com",
+    "follower_name": "Beatriz Oliveira",
+    "follower_register_date": "2022-02-05 01:02:03.004",
+    "video_description": "Descrição do vídeo da Ana",
+    "video_name": "Vídeo da Ana",
+    "video_tag": ["tag1"],
+    "video_upload_time": "2023-01-10 12:23:34.223"
+  },
+  {
+    "author_username": "beatrizoliveira",
+    "video_id": "cf54e676-4aaf-40e5-bd3a-b3a842a893f4",
+    "follower_username": "pedromartins",
+    "follower_email": "pedro.martins@example.com",
+    "follower_name": "Pedro Martins",
+    "follower_register_date": "2023-03-04 05:06:07.008",
+    "video_description": "Descrição do vídeo da Beatriz",
+    "video_name": "Vídeo da Beatriz",
+    "video_tag": ["tag1", "tag3"],
+    "video_upload_time": "2023-03-24 16:45:22.345"
+  },
+  {
+    "author_username": "carlospereira",
+    "video_id": "86aafb44-6fc7-488e-85ba-8631fe66a97c",
+    "follower_username": "anacosta",
+    "follower_email": "ana.costa@example.com",
+    "follower_name": "Ana Costa",
+    "follower_register_date": "2022-12-31 23:59:59.999",
+    "video_description": "Descrição do vídeo do Carlos",
+    "video_name": "Vídeo do Carlos",
+    "video_tag": ["tag2", "tag3", "tag4"],
+    "video_upload_time": "2022-10-01 00:00:00.000"
+  },
+  {
+    "author_username": "carlospereira",
+    "video_id": "86aafb44-6fc7-488e-85ba-8631fe66a97c",
+    "follower_username": "ricardofernandes",
+    "follower_email": "ricardo.fernandes@example.com",
+    "follower_name": "Ricardo Fernandes",
+    "follower_register_date": "2022-01-01 00:00:00.000",
+    "video_description": "Descrição do vídeo do Carlos",
+    "video_name": "Vídeo do Carlos",
+    "video_tag": ["tag2", "tag3", "tag4"],
+    "video_upload_time": "2022-10-01 00:00:00.000"
+  },
+  {
+    "author_username": "joaosilva",
+    "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "follower_username": "catarinarodrigues",
+    "follower_email": "catarina.rodrigues@example.com",
+    "follower_name": "Catarina Rodrigues",
+    "follower_register_date": "2023-02-03 04:05:06.007",
+    "video_description": "Descrição do vídeo do João",
+    "video_name": "Vídeo do João",
+    "video_tag": ["tag1", "tag2"],
+    "video_upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "joaosilva",
+    "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "follower_username": "margaridacosta",
+    "follower_email": "margarida.costa@example.com",
+    "follower_name": "Margarida Costa",
+    "follower_register_date": "2023-10-16 17:18:19.020",
+    "video_description": "Descrição do vídeo do João",
+    "video_name": "Vídeo do João",
+    "video_tag": ["tag1", "tag2"],
+    "video_upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "joaosilva",
+    "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6",
+    "follower_username": "mariasouza",
+    "follower_email": "maria.souza@example.com",
+    "follower_name": "Maria Souza",
+    "follower_register_date": "2023-05-12 12:34:56.789",
+    "video_description": "Descrição do vídeo do João",
+    "video_name": "Vídeo do João",
+    "video_tag": ["tag1", "tag2"],
+    "video_upload_time": "2023-10-21 17:22:19.000"
+  },
+  {
+    "author_username": "mariasouza",
+    "video_id": "db72a1e5-c706-41ba-85b1-198e6f9061f4",
+    "follower_username": "carlospereira",
+    "follower_email": "carlos.pereira@example.com",
+    "follower_name": "Carlos Pereira",
+    "follower_register_date": "2022-09-30 09:08:07.654",
+    "video_description": "Descrição do vídeo da Maria",
+    "video_name": "Vídeo da Maria",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-05-12 15:00:00.000"
+  },
+  {
+    "author_username": "mariasouza",
+    "video_id": "db72a1e5-c706-41ba-85b1-198e6f9061f4",
+    "follower_username": "joaosilva",
+    "follower_email": "joao.silva@example.com",
+    "follower_name": "João Silva",
+    "follower_register_date": "2023-01-31 23:45:12.345",
+    "video_description": "Descrição do vídeo da Maria",
+    "video_name": "Vídeo da Maria",
+    "video_tag": ["tag2", "tag3"],
+    "video_upload_time": "2023-05-12 15:00:00.000"
+  },
+  {
+    "author_username": "margaridacosta",
+    "video_id": "88e52b88-5d06-4621-a71b-4405252fab4a",
+    "follower_username": "ruialmeida",
+    "follower_email": "rui.almeida@example.com",
+    "follower_name": "Rui Almeida",
+    "follower_register_date": "2023-04-17 18:19:20.021",
+    "video_description": "Descrição do vídeo da Margarida",
+    "video_name": "Vídeo da Margarida",
+    "video_tag": ["tag1", "tag4"],
+    "video_upload_time": "2023-11-17 12:04:24.456"
+  }
+]
