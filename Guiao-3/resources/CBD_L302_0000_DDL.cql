@@ -129,6 +129,7 @@ CREATE TABLE RATING
     video_tag         SET<VARCHAR>,
     video_upload_time TIMESTAMP,
 
+    rating_id         UUID,
     rating            INT,
-    PRIMARY KEY ( (author_username, video_id), rating )
+    PRIMARY KEY ( (author_username, video_id), rating_id )
 );

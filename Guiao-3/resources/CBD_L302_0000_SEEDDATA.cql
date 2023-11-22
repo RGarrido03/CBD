@@ -318,81 +318,104 @@ VALUES ('anacosta', 'Ana Costa', 'ana.costa@example.com', '2022-12-31 23:59:59.9
 
 
 -- Tabela RATING
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('joaosilva', 2a949560-77bb-4f85-b604-1d4c694f3bd6, 'Vídeo do João', 'Descrição do vídeo do João',
-        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', 5);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', 4342400f-037d-4ecb-bb96-5e958942645d, 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('joaosilva', 2a949560-77bb-4f85-b604-1d4c694f3bd6, 'Vídeo do João', 'Descrição do vídeo do João',
-        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', 4);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', 9e16e7ab-f33f-4731-8b61-bc901a559df0, 4);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('joaosilva', 2a949560-77bb-4f85-b604-1d4c694f3bd6, 'Vídeo do João', 'Descrição do vídeo do João',
-        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', 5);
+        {'tag1', 'tag2'}, '2023-10-21 17:22:19.000', e1257cfa-147f-4e4a-8326-43a8d0654e2e, 5);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',
-        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', 4);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', eda5e5f7-9cdb-4645-b83b-7165e21f239a, 4);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',
-        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', 5);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', 74c826c6-294f-49d4-be99-f8e12a53b0d1, 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',
-        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', 4);
+        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', 22076a8d-56d4-4b15-a416-a7a72038677c, 4);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('carlospereira', 86aafb44-6fc7-488e-85ba-8631fe66a97c, 'Vídeo do Carlos', 'Descrição do vídeo do Carlos',
-        {'tag2', 'tag3', 'tag4'}, '2022-10-01 00:00:00.000', 3);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3', 'tag4'}, '2022-10-01 00:00:00.000', 576b0c6c-23b0-40c0-813d-fbd76b65fe1e, 3);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('carlospereira', 86aafb44-6fc7-488e-85ba-8631fe66a97c, 'Vídeo do Carlos', 'Descrição do vídeo do Carlos',
-        {'tag2', 'tag3', 'tag4'}, '2022-10-01 00:00:00.000', 2);
+        {'tag2', 'tag3', 'tag4'}, '2022-10-01 00:00:00.000', 5c775e22-e3f5-4fd2-af76-945cc81a47fd, 2);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('anacosta', 8fc80794-fb45-4de7-ad65-c691c2b159eb, 'Vídeo da Ana', 'Descrição do vídeo da Ana',
-        {'tag1'}, '2023-01-10 12:23:34.223', 5);
+        {'tag1'}, '2023-01-10 12:23:34.223', 222a97c3-86fd-49ba-83d6-bdd0ce5f55c9, 5);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('ricardofernandes', 5576245c-f401-4688-a295-95d012e32000, 'Vídeo do Ricardo', 'Descrição do vídeo do Ricardo',
-        {'tag3', 'tag4'}, '2022-01-02 00:00:00.000', 4);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag3', 'tag4'}, '2022-01-02 00:00:00.000', 9424d889-79c3-436f-b6e7-01e50583cd79, 4);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('ricardofernandes', 5576245c-f401-4688-a295-95d012e32000, 'Vídeo do Ricardo', 'Descrição do vídeo do Ricardo',
-        {'tag3', 'tag4'}, '2022-01-02 00:00:00.000', 4);
+        {'tag3', 'tag4'}, '2022-01-02 00:00:00.000', fe426108-c457-484e-99e0-397ae8e79a6b, 4);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('beatrizoliveira', cf54e676-4aaf-40e5-bd3a-b3a842a893f4, 'Vídeo da Beatriz', 'Descrição do vídeo da Beatriz',
-        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', 5);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', 4d18a815-5527-4918-bf34-1ba94a9b877f, 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('beatrizoliveira', cf54e676-4aaf-40e5-bd3a-b3a842a893f4, 'Vídeo da Beatriz', 'Descrição do vídeo da Beatriz',
-        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', 5);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', df572d22-0e45-4701-82fb-2eccee8683da, 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('beatrizoliveira', cf54e676-4aaf-40e5-bd3a-b3a842a893f4, 'Vídeo da Beatriz', 'Descrição do vídeo da Beatriz',
-        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', 4);
+        {'tag1', 'tag3'}, '2023-03-24 16:45:22.345', 93030e07-4d3e-4940-a945-1760fee672a6, 4);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('pedromartins', 97a647e1-cb0f-4698-83ee-5415320c4591, 'Vídeo do Pedro', 'Descrição do vídeo do Pedro',
-        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 4);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 8a065fd4-45f1-419e-a009-5bce2e298372, 4);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('pedromartins', 97a647e1-cb0f-4698-83ee-5415320c4591, 'Vídeo do Pedro', 'Descrição do vídeo do Pedro',
-        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 3);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 67eaa9ee-c147-49f3-9bac-d7b9f5073965, 3);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('pedromartins', 97a647e1-cb0f-4698-83ee-5415320c4591, 'Vídeo do Pedro', 'Descrição do vídeo do Pedro',
-        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 5);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 82d0c5ee-b06d-44bc-a2e6-13a156545889, 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('pedromartins', 97a647e1-cb0f-4698-83ee-5415320c4591, 'Vídeo do Pedro', 'Descrição do vídeo do Pedro',
-        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 4);
+        {'tag2', 'tag3'}, '2023-09-01 08:34:27.000', 9952abae-0ac8-4577-9b6f-e855d492191b, 4);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('catarinarodrigues', 0d5a8fbd-7b6c-4715-ac71-9ce9a75b9352, 'Vídeo da Catarina',
-        'Descrição do vídeo da Catarina', {'tag4'}, '2023-02-04 15:00:00.345', 3);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        'Descrição do vídeo da Catarina', {'tag4'}, '2023-02-04 15:00:00.345', 2dd0bfea-ece9-46e0-8c62-e1f48c074d9e, 3);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('catarinarodrigues', 0d5a8fbd-7b6c-4715-ac71-9ce9a75b9352, 'Vídeo da Catarina',
-        'Descrição do vídeo da Catarina', {'tag4'}, '2023-02-04 15:00:00.345', 1);
+        'Descrição do vídeo da Catarina', {'tag4'}, '2023-02-04 15:00:00.345', b8e2604b-1166-4775-b44c-082aea5b0fbe, 1);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('ruialmeida', c553d808-ea99-41cb-837e-c35a199ed3ed, 'Vídeo do Rui', 'Descrição do vídeo do Rui',
-        {'tag2', 'tag4'}, '2023-06-30 11:00:00.001', 4);
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
+        {'tag2', 'tag4'}, '2023-06-30 11:00:00.001', da904fdb-1f26-49ed-866e-3caffbca7e11, 4);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
 VALUES ('ruialmeida', c553d808-ea99-41cb-837e-c35a199ed3ed, 'Vídeo do Rui', 'Descrição do vídeo do Rui',
-        {'tag2', 'tag4'}, '2023-06-30 11:00:00.001', 2);
+        {'tag2', 'tag4'}, '2023-06-30 11:00:00.001', 7e8bc30a-bbf3-4332-8ccb-4a58369d6970, 2);
 
-INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating)
-VALUES ('margaridacosta', 88e52b88-5d06-4621-a71b-4405252fab4a, 'Vídeo da Margarida',
-        'Descrição do vídeo da Margarida', {'tag1', 'tag4'}, '2023-11-17 12:04:24.456', 5);
+INSERT INTO RATING (author_username, video_id, video_name, video_description, video_tag, video_upload_time, rating_id,
+                    rating)
+VALUES ('margaridacosta', 88e52b88-5d06-4621-a71b-4405252fab4a, 'Vídeo da Margarida', 'Descrição do vídeo da Margarida',
+        {'tag1', 'tag4'}, '2023-11-17 12:04:24.456', b96d6e23-7e9f-4f5d-aaf5-f08abf439438, 2);
