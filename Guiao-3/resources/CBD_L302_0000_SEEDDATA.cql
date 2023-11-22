@@ -125,6 +125,10 @@ VALUES ('anacosta', 'Ana Costa', 'ana.costa@example.com', '2022-12-31 23:59:59.9
         2a949560-77bb-4f85-b604-1d4c694f3bd6, '2023-10-21 19:45:29.000', 'Comentário da Ana no vídeo do João');
 INSERT INTO COMMENT_BY_AUTHOR (comment_author_username, comment_author_name, comment_author_email,
                                comment_author_register_date, video_author_username, video_id, time, content)
+VALUES ('anacosta', 'Ana Costa', 'ana.costa@example.com', '2022-12-31 23:59:59.999', 'mariasouza',
+        db72a1e5-c706-41ba-85b1-198e6f9061f4, '2023-05-12 15:01:30.000', 'Comentário da Ana no vídeo da Maria');
+INSERT INTO COMMENT_BY_AUTHOR (comment_author_username, comment_author_name, comment_author_email,
+                               comment_author_register_date, video_author_username, video_id, time, content)
 VALUES ('ricardofernandes', 'Ricardo Fernandes', 'ricardo.fernandes@example.com', '2022-01-01 00:00:00.000',
         'mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, '2023-05-12 15:30:00.000',
         'Comentário do Ricardo no vídeo da Maria');
@@ -184,6 +188,11 @@ INSERT INTO COMMENT_BY_VIDEO (author_username, video_id, video_name, video_descr
 VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',
         {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', '2023-05-12 15:01:00.000',
         'Comentário do Carlos no vídeo da Maria');
+INSERT INTO COMMENT_BY_VIDEO (author_username, video_id, video_name, video_description, video_tag, video_upload_time,
+                              time, content)
+VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',
+        {'tag2', 'tag3'}, '2023-05-12 15:00:00.000', '2023-05-12 15:01:30.000',
+        'Comentário da Ana no vídeo da Maria');
 INSERT INTO COMMENT_BY_VIDEO (author_username, video_id, video_name, video_description, video_tag, video_upload_time,
                               time, content)
 VALUES ('mariasouza', db72a1e5-c706-41ba-85b1-198e6f9061f4, 'Vídeo da Maria', 'Descrição do vídeo da Maria',

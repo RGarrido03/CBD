@@ -90,6 +90,16 @@
     "video_id": "2a949560-77bb-4f85-b604-1d4c694f3bd6"
   },
   {
+    "comment_author_username": "anacosta",
+    "time": "2023-05-12 15:01:30.000",
+    "comment_author_email": "ana.costa@example.com",
+    "comment_author_name": "Ana Costa",
+    "comment_author_register_date": "2022-12-31 23:59:59.999",
+    "content": "Comentário da Ana no vídeo da Maria",
+    "video_author_username": "mariasouza",
+    "video_id": "db72a1e5-c706-41ba-85b1-198e6f9061f4"
+  },
+  {
     "comment_author_username": "pedromartins",
     "time": "2023-05-12 17:23:58.000",
     "comment_author_email": "pedro.martins@example.com",
