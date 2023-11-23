@@ -116,7 +116,7 @@ CREATE TABLE EVENT
     video_time        DOUBLE,
 
     PRIMARY KEY ( (author_username, video_id), username, time )
-);
+) WITH CLUSTERING ORDER BY (username asc, time desc);
 
 
 CREATE TABLE RATING
