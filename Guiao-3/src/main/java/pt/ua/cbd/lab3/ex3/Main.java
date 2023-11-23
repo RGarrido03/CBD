@@ -9,7 +9,11 @@ public class Main {
         try (CqlSession session = CqlSession.builder().build()) {                                  // (1)
             ResultSet rs = session.execute("select release_version from system.local");              // (2)
             Row row = rs.one();
-            System.out.println(row.getString("release_version"));                                    // (3)
+            if (row != null) {
+                System.out.println(row.getString("release_version"));                                    // (3)
+            } else {
+                System.out.println("No rows found.");
+            }
         }
     }
 }
