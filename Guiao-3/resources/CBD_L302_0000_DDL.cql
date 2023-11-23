@@ -1,7 +1,7 @@
 -- Keyspace
-DROP KEYSPACE IF EXISTS CBD_LAB3;
-CREATE KEYSPACE CBD_LAB3 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
-USE CBD_LAB3;
+DROP KEYSPACE IF EXISTS CBD_LAB3_ex2;
+CREATE KEYSPACE CBD_LAB3_ex2 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+USE CBD_LAB3_ex2;
 
 
 CREATE TABLE USER

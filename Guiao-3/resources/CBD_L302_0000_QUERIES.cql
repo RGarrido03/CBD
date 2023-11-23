@@ -1,4 +1,4 @@
-USE cbd_lab3;
+USE cbd_lab3_ex2;
 
 // 7. Permitir a pesquisa de todos os videos de determinado autor;
 SELECT *

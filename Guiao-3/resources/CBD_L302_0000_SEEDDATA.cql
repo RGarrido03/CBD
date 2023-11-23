@@ -1,4 +1,4 @@
-USE CBD_LAB3;
+USE CBD_LAB3_ex2;
 
 -- Tabela USER
 INSERT INTO USER (username, name, email, register_date)
