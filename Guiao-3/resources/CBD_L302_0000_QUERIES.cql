@@ -12,7 +12,8 @@ WHERE comment_author_username = 'anacosta';
 
 // 9. Permitir a pesquisa de comentarios por videos, ordenado inversamente pela data;
 SELECT *
-FROM comment_by_video;
+FROM comment_by_video
+ORDER BY time desc;
 
 // 10. Permitir a pesquisa do rating medio de um video e quantas vezes foi votado;
 SELECT author_username, video_id, AVG(rating) AS avg, count(*) AS count
@@ -50,9 +51,9 @@ LIMIT 5;
 SELECT *
 FROM video
 WHERE author_username = 'joaosilva'
+  AND id = '2a949560-77bb-4f85-b604-1d4c694f3bd6'
   AND upload_time >= '2023-10-01 00:00:00.000'
-  AND upload_time < '2023-11-01 00:00:00.000'
-    ALLOW FILTERING;
+  AND upload_time < '2023-11-01 00:00:00.000';
 
 // 6. Os ultimos 10 videos, ordenado inversamente pela data da partilhada;
 // Não é possível, pois o Cassandra não permite efetuar uma consulta alargada a todas as partições quando se usa um ORDER BY.
@@ -67,9 +68,8 @@ WHERE author_username = 'joaosilva'
 // Uma vez que não existem JOINs, não é possível efetuar esta query.
 
 // 9. Os 5 videos com maior rating;
-SELECT author_username, video_id, AVG(rating)
-FROM rating
-GROUP BY author_username, video_id;
+// Uma vez que não é possível fazer o avg() e ordenar por isso, não é possível efetuar a query.
+// Uma alternativa possível seria criar uma tabela só com averages.
 
 // 10. Uma query que retorne todos os videos e que mostre claramente a forma pela qual estao ordenados;
 SELECT *

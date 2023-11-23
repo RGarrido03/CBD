@@ -23,9 +23,8 @@ CREATE TABLE VIDEO
     description     VARCHAR,
     tag             SET<VARCHAR>,
     upload_time     TIMESTAMP,
-    PRIMARY KEY ( author_username, id ),
+    PRIMARY KEY ( author_username, id, upload_time ),
 );
-CREATE INDEX upload_time ON VIDEO (upload_time);
 
 
 CREATE TABLE VIDEO_BY_TAG
