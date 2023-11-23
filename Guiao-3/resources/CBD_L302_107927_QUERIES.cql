@@ -51,9 +51,9 @@ LIMIT 5;
 SELECT *
 FROM video
 WHERE author_username = 'joaosilva'
-  AND id = '2a949560-77bb-4f85-b604-1d4c694f3bd6'
   AND upload_time >= '2023-10-01 00:00:00.000'
-  AND upload_time < '2023-11-01 00:00:00.000';
+  AND upload_time < '2023-11-01 00:00:00.000'
+    ALLOW FILTERING;
 
 // 6. Os ultimos 10 videos, ordenado inversamente pela data da partilhada;
 // Não é possível, pois o Cassandra não permite efetuar uma consulta alargada a todas as partições quando se usa um ORDER BY.
