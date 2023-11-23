@@ -23,7 +23,7 @@ CREATE TABLE VIDEO
     description     VARCHAR,
     tag             SET<VARCHAR>,
     upload_time     TIMESTAMP,
-    PRIMARY KEY ( author_username, id, upload_time ),
+    PRIMARY KEY ( author_username, upload_time, id ),
 );
 
 
