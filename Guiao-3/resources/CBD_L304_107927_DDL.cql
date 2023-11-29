@@ -12,6 +12,15 @@ CREATE TABLE USERS
     addresses     SET<VARCHAR>,
 );
 
+CREATE TABLE USERS_BY_DATE
+(
+    username      VARCHAR,
+    name          VARCHAR,
+    email         VARCHAR,
+    register_date TIMESTAMP PRIMARY KEY,
+    addresses     SET<VARCHAR>,
+);
+
 CREATE TABLE ORDERS
 (
     // User denormalization
@@ -27,6 +36,7 @@ CREATE TABLE ORDERS
     address       VARCHAR,
     PRIMARY KEY ( username, id, time ),
 );
+CREATE INDEX products_idx ON ORDERS (ENTRIES (products));
 
 CREATE TABLE PRODUCTS
 (
@@ -40,6 +50,15 @@ CREATE TABLE REVIEWS_BY_PRODUCT
 (
     id      UUID PRIMARY KEY,
     reviews LIST<INT>,
+);
+
+CREATE TABLE PRODUCTS_BY_REVIEW
+(
+    review INT,
+    id     UUID,
+    name   VARCHAR,
+    price  DECIMAL,
+    PRIMARY KEY ( review, id )
 );
 
 CREATE TABLE ORDERS_BY_PRODUCT

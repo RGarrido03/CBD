@@ -30,6 +30,34 @@ INSERT INTO USERS (username, name, email, register_date, addresses)
 VALUES ('sophiamoore', 'Sophia Moore', 'sophia.moore@email.com', '2023-10-30',
         {'234 Main St, City10', '235 Main St, City11'});
 
+// Insert data into USERS_BY_DATE table
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('johndoe', 'John Doe', 'john.doe@email.com', '2023-01-01', {'123 Main St, City1', '124 Main St, City2'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('janesmith', 'Jane Smith', 'jane.smith@email.com', '2023-02-15', {'456 Oak St, City2', '457 Oak St, City3'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('bobjohnson', 'Bob Johnson', 'bob.johnson@email.com', '2023-03-20',
+        {'789 Pine St, City3', '790 Pine St, City4'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('alicewilliams', 'Alice Williams', 'alice.williams@email.com', '2023-04-10',
+        {'234 Maple St, City4', '235 Maple St, City5'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('charliebrown', 'Charlie Brown', 'charlie.brown@email.com', '2023-05-05',
+        {'567 Birch St, City5', '568 Birch St, City6'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('evadavis', 'Eva Davis', 'eva.davis@email.com', '2023-06-18', {'890 Cedar St, City6', '891 Cedar St, City7'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('frankwhite', 'Frank White', 'frank.white@email.com', '2023-07-22', {'345 Elm St, City7', '346 Elm St, City8'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('graceturner', 'Grace Turner', 'grace.turner@email.com', '2023-08-09',
+        {'678 Pine St, City8', '679 Pine St, City9'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('davidmiller', 'David Miller', 'david.miller@email.com', '2023-09-14',
+        {'901 Oak St, City9', '902 Oak St, City10'});
+INSERT INTO USERS_BY_DATE (username, name, email, register_date, addresses)
+VALUES ('sophiamoore', 'Sophia Moore', 'sophia.moore@email.com', '2023-10-30',
+        {'234 Main St, City10', '235 Main St, City11'});
+
 
 // Insert data into PRODUCTS table
 INSERT INTO PRODUCTS (id, name, price)
@@ -113,11 +141,11 @@ VALUES ('sophiamoore', 'Sophia Moore', 'sophia.moore@email.com', '2023-10-30',
 
 // Insert data into REVIEWS_BY_PRODUCT table
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
-VALUES (1e452b11-b7c8-488a-8ad1-d1f5ebea2cf5, [5, 2, 1, 4]);
+VALUES (1e452b11-b7c8-488a-8ad1-d1f5ebea2cf5, [5, 4]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
 VALUES (552a883d-7b24-4ba5-bc67-e0100566c069, [5, 5, 5, 4]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
-VALUES (5393d813-2a51-41d5-941c-d7c034d3e59d, [1, 2, 3]);
+VALUES (5393d813-2a51-41d5-941c-d7c034d3e59d, [2]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
 VALUES (d80b3112-fc91-4240-a90f-94658fed4555, [5]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
@@ -129,13 +157,56 @@ VALUES (2c8c9460-9b25-43b5-afa4-e98f3d9096a8, [2, 2]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
 VALUES (7c912aab-e862-4cfe-af8b-5c3d20029083, [3, 4, 5]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
-VALUES (60a42fac-1570-421f-8cc9-eb308a48c133, [5, 2, 1, 4]);
+VALUES (60a42fac-1570-421f-8cc9-eb308a48c133, [5, 2, 4]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
 VALUES (22f77d42-2ca7-4426-a023-4b55183c700d, [5, 5, 5, 5]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
 VALUES (a19c0e48-f8d0-415b-8a86-dbaa6a85d51e, [4]);
 INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
-VALUES (f60f72be-3e8c-4bb3-9ab7-96bac708d3ef, [5, 3, 1]);
+VALUES (f60f72be-3e8c-4bb3-9ab7-96bac708d3ef, [5, 3]);
+
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 5393d813-2a51-41d5-941c-d7c034d3e59d, 'Headphones', 150.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, 5393d813-2a51-41d5-941c-d7c034d3e59d, 'Headphones', 150.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 552a883d-7b24-4ba5-bc67-e0100566c069, 'Smartphone', 800.50);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, 552a883d-7b24-4ba5-bc67-e0100566c069, 'Smartphone', 800.50);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (2, 5393d813-2a51-41d5-941c-d7c034d3e59d, 'Headphones', 150.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (1, d80b3112-fc91-4240-a90f-94658fed4555, 'Camera', 900.25);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, c2e6d412-46a6-482d-a063-131dc2638c12, 'Fitness Tracker', 50.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (3, 7ae45ceb-bc33-4a12-9053-e53467c5227f, 'Bluetooth Speaker', 80.99);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, 7ae45ceb-bc33-4a12-9053-e53467c5227f, 'Bluetooth Speaker', 80.99);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 7ae45ceb-bc33-4a12-9053-e53467c5227f, 'Bluetooth Speaker', 80.99);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (2, 2c8c9460-9b25-43b5-afa4-e98f3d9096a8, 'External Hard Drive', 200.50);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (3, 7c912aab-e862-4cfe-af8b-5c3d20029083, 'Coffee Maker', 60.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, 7c912aab-e862-4cfe-af8b-5c3d20029083, 'Coffee Maker', 60.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 7c912aab-e862-4cfe-af8b-5c3d20029083, 'Coffee Maker', 60.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (2, 60a42fac-1570-421f-8cc9-eb308a48c133, 'Gaming Mouse', 45.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, 60a42fac-1570-421f-8cc9-eb308a48c133, 'Gaming Mouse', 45.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 60a42fac-1570-421f-8cc9-eb308a48c133, 'Gaming Mouse', 45.75);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, 22f77d42-2ca7-4426-a023-4b55183c700d, 'Wireless Keyboard', 30.50);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (4, a19c0e48-f8d0-415b-8a86-dbaa6a85d51e, 'Monitor', 300.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (3, f60f72be-3e8c-4bb3-9ab7-96bac708d3ef, 'Desk Chair', 120.00);
+INSERT INTO products_by_review (review, id, name, price)
+VALUES (5, f60f72be-3e8c-4bb3-9ab7-96bac708d3ef, 'Desk Chair', 120.00);
 
 
 // Insert data into ORDERS_BY_PRODUCT table
