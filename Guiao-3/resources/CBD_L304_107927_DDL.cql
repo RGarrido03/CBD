@@ -17,8 +17,9 @@ CREATE TABLE USERS_BY_DATE
     username      VARCHAR,
     name          VARCHAR,
     email         VARCHAR,
-    register_date TIMESTAMP PRIMARY KEY,
+    register_date TIMESTAMP,
     addresses     SET<VARCHAR>,
+    PRIMARY KEY ( register_date, username )
 );
 
 CREATE TABLE ORDERS
