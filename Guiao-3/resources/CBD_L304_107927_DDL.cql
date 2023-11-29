@@ -34,6 +34,7 @@ CREATE TABLE PRODUCTS
     name  VARCHAR,
     price DECIMAL,
 );
+CREATE INDEX product_price ON PRODUCTS (price);
 
 CREATE TABLE REVIEWS_BY_PRODUCT
 (
@@ -51,3 +52,4 @@ CREATE TABLE ORDERS_BY_PRODUCT
     address    VARCHAR,
     PRIMARY KEY ( product_id, username, order_id )
 );
+CREATE INDEX time_idx ON ORDERS_BY_PRODUCT (time);
