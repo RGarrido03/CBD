@@ -111,6 +111,33 @@ VALUES ('sophiamoore', 'Sophia Moore', 'sophia.moore@email.com', '2023-10-30',
         '2023-10-31 13:10:00.000', '234 Main St, City10');
 
 
+// Insert data into REVIEWS_BY_PRODUCT table
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('1e452b11-b7c8-488a-8ad1-d1f5ebea2cf5', [5, 2, 1, 4]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('552a883d-7b24-4ba5-bc67-e0100566c069', [5, 5, 5, 4]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('5393d813-2a51-41d5-941c-d7c034d3e59d', [1, 2, 3]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('d80b3112-fc91-4240-a90f-94658fed4555', [5]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('c2e6d412-46a6-482d-a063-131dc2638c12', [4, 4]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('7ae45ceb-bc33-4a12-9053-e53467c5227f', [3, 4, 3]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('2c8c9460-9b25-43b5-afa4-e98f3d9096a8', [2, 2]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('7c912aab-e862-4cfe-af8b-5c3d20029083', [3, 4, 5]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('60a42fac-1570-421f-8cc9-eb308a48c133', [5, 2, 1, 4]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('22f77d42-2ca7-4426-a023-4b55183c700d', [5, 5, 5, 5]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('a19c0e48-f8d0-415b-8a86-dbaa6a85d51e', [4]);
+INSERT INTO REVIEWS_BY_PRODUCT (id, reviews)
+VALUES ('f60f72be-3e8c-4bb3-9ab7-96bac708d3ef', [5, 3, 1]);
+
+
 // Insert data into ORDERS_BY_PRODUCT table
 INSERT INTO ORDERS_BY_PRODUCT (product_id, username, order_id, time, address)
 VALUES ('1e452b11-b7c8-488a-8ad1-d1f5ebea2cf5', 'johndoe', '8c4eb9fc-4164-42bc-ad7b-bbf5e9e3b617',

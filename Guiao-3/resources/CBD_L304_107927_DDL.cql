@@ -9,7 +9,7 @@ CREATE TABLE USERS
     name          VARCHAR,
     email         VARCHAR,
     register_date TIMESTAMP,
-    addresses     LIST<VARCHAR>,
+    addresses     SET<VARCHAR>,
 );
 
 CREATE TABLE ORDERS
@@ -33,6 +33,12 @@ CREATE TABLE PRODUCTS
     id    UUID PRIMARY KEY,
     name  VARCHAR,
     price DECIMAL,
+);
+
+CREATE TABLE REVIEWS_BY_PRODUCT
+(
+    id      UUID PRIMARY KEY,
+    reviews LIST<INT>,
 );
 
 CREATE TABLE ORDERS_BY_PRODUCT
