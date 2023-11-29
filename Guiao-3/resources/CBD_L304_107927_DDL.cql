@@ -19,7 +19,7 @@ CREATE TABLE ORDERS
     name          VARCHAR,
     email         VARCHAR,
     register_date TIMESTAMP,
-    addresses     LIST<VARCHAR>,
+    addresses     SET<VARCHAR>,
 
     id            UUID,
     products      MAP<UUID, INT>,
