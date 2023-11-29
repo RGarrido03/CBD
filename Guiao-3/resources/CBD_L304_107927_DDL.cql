@@ -8,18 +8,23 @@ CREATE TABLE USERS
     username      VARCHAR PRIMARY KEY,
     name          VARCHAR,
     email         VARCHAR,
-    register_date TIMESTAMP
+    register_date TIMESTAMP,
+    addresses     LIST<VARCHAR>,
 );
 
 CREATE TABLE ORDERS
 (
     // User denormalization
-    username VARCHAR,
+    username      VARCHAR,
+    name          VARCHAR,
+    email         VARCHAR,
+    register_date TIMESTAMP,
+    addresses     LIST<VARCHAR>,
 
-    id       UUID,
-    products MAP<UUID, INT>,
-    time     TIMESTAMP,
-    address  VARCHAR,
+    id            UUID,
+    products      MAP<UUID, INT>,
+    time          TIMESTAMP,
+    address       VARCHAR,
     PRIMARY KEY ( username, id, time ),
 );
 
