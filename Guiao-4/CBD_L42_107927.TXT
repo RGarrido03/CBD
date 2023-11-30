@@ -1,6 +1,6 @@
-// NMEC: 00000
+// NMEC: 107927
 
-#1 Encontre todos os atores que dirigiram um filme em que também atuaram e apresente o nome do ator e o título do filme.
+# 1. Encontre todos os atores que dirigiram um filme em que também atuaram e apresente o nome do ator e o título do filme.
 match ...
 
 # 2. Para cada filme realizado depois de 2005, apresente os nomes de todos os atores que atuaram nesse filme.
