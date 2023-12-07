@@ -3,10 +3,10 @@
 # 0. Carregue o conteudo do ficheiro `/resouces/git_selection.csv`.
 LOAD CSV WITH HEADERS FROM 'file:///resources/git_selection.csv' AS csvLine
 MERGE (p:Person {svn_id: csvLine.svn_id, name: csvLine.real_name})
-SET p.organization = csvLine.organization
+MERGE (o:Organization {name: csvLine.organization})
 MERGE (pr:Project {name: csvLine.project_name})
-MERGE (p)-[r:WORKED_ON]->(pr)
-SET r.role_on_project=csvLine.role_on_project
+MERGE (p)-[:WORKED_ON {role_on_project: csvLine.role_on_project}]->(pr)
+MERGE (p)-[:BELONGS_TO]-(o)
 
 # 1. Liste a informação de cada utilizador.
 MATCH (n:Person)
@@ -20,7 +20,7 @@ RETURN DISTINCT n.name
 MATCH (n:Person)-[:WORKED_ON]->(p:Project)
 WITH p as project, count(n) AS people
 WHERE people >= 1
-RETURN project, people
+RETURN project
 
 # 4. Liste os utilizadores e total de projetos em que cada um colabora.
 MATCH (n:Person)-[:WORKED_ON]->(p:Project)
