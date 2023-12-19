@@ -14,7 +14,8 @@ public class Main implements AutoCloseable {
         try (var db = new Main("bolt://localhost:7687")) {
             // db.deleteAll();
             // db.createNodes();
-            db.query1();
+            // db.query1();
+            db.query2();
         }
     }
 
@@ -70,6 +71,25 @@ public class Main implements AutoCloseable {
             });
             for (Record record : result) {
                 System.out.println(record.get("name").asString());
+            }
+        }
+    }
+
+    private void query2() {
+        System.out.println("\n--- Query 2 ---");
+        System.out.println(">> Count the number of apps in each category, with descending order\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (a:App)-[:CATEGORY]->(c:Category)
+                                              RETURN c.name as category, count(*) as count
+                                              ORDER BY count DESC""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("category").asString() + ": " + record.get("count").asInt());
             }
         }
     }
