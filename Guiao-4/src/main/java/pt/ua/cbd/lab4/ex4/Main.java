@@ -12,10 +12,18 @@ public class Main implements AutoCloseable {
 
     public static void main(String... args) {
         try (var db = new Main("bolt://localhost:7687")) {
-            // db.deleteAll();
-            // db.createNodes();
-            // db.query1();
+            db.deleteAll();
+            db.createNodes();
+            db.query1();
             db.query2();
+            db.query3();
+            db.query4();
+            db.query5();
+            db.query6();
+            db.query7();
+            db.query8();
+            db.query9();
+            db.query10();
         }
     }
 
@@ -90,6 +98,158 @@ public class Main implements AutoCloseable {
             });
             for (Record record : result) {
                 System.out.println(record.get("category").asString() + ": " + record.get("count").asInt());
+            }
+        }
+    }
+
+    private void query3() {
+        System.out.println("\n--- Query 3 ---");
+        System.out.println(">> List 20 apps with 50M+ installs, ordered by descending name\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (a:App)-[:INSTALLS]->(i:Installs {name: "50,000,000+"})
+                                              RETURN a.name as app
+                                              ORDER BY app DESC
+                                              LIMIT 20""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("app").asString());
+            }
+        }
+    }
+
+    private void query4() {
+        System.out.println("\n--- Query 4 ---");
+        System.out.println(">> List 20 games with 50M+ installs\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category {name: "GAME"})<-[:CATEGORY]-(a:App)-[:INSTALLS]->(i:Installs {name: "50,000,000+"})
+                                              RETURN a.name as app
+                                              LIMIT 20""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("app").asString());
+            }
+        }
+    }
+
+    private void query5() {
+        System.out.println("\n--- Query 5 ---");
+        System.out.println(">> List the number of games for each rating, sorted by count\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category {name: "GAME"})<-[:CATEGORY]-(a:App)-[:CONTENT_RATING]->(cr:ContentRating)
+                                              RETURN cr.name AS rating, count(*) AS count
+                                              ORDER BY count DESC""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("rating").asString() + ": " + record.get("count").asInt());
+            }
+        }
+    }
+
+    private void query6() {
+        System.out.println("\n--- Query 6 ---");
+        System.out.println(">> Show install statistics for category Family\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category {name: "FAMILY"})<-[:CATEGORY]-(a:App)-[:INSTALLS]->(i:Installs)
+                                              RETURN i.name as installs, count(*) AS count
+                                              ORDER BY installs""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("installs").asString() + ": " + record.get("count").asInt());
+            }
+        }
+    }
+
+    private void query7() {
+        System.out.println("\n--- Query 7 ---");
+        System.out.println(">> Show popular navigation apps\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category {name: "MAPS_AND_NAVIGATION"})<-[:CATEGORY]-(a:App)-[:INSTALLS]->(i:Installs {name: "50,000,000+"})
+                                              RETURN a.name as app
+                                              ORDER BY app""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("app").asString());
+            }
+        }
+    }
+
+    private void query8() {
+        System.out.println("\n--- Query 8 ---");
+        System.out.println(">> Show the most popular apps and their categories\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category)<-[:CATEGORY]-(a:App)-[:INSTALLS]->(i:Installs {name: "500,000,000+"})
+                                              RETURN a.name as app, c.name as category""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("app").asString() + ": " + record.get("category").asString());
+            }
+        }
+    }
+
+    private void query9() {
+        System.out.println("\n--- Query 9 ---");
+        System.out.println(">> Show info about Instagram\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (c:Category)<-[:CATEGORY]-(a:App {name: "Instagram"})-[:INSTALLS]->(i:Installs)
+                                              RETURN a.name as name, c.name as category, i.name as installs""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println("Name: " + record.get("name").asString());
+                System.out.println("Category: " + record.get("category").asString());
+                System.out.println("Installs: " + record.get("installs").asString());
+            }
+        }
+    }
+
+    private void query10() {
+        System.out.println("\n--- Query 10 ---");
+        System.out.println(">> Show installs stats regarding apps meant for teens\n");
+
+        try (var session = driver.session()) {
+            var result = session.executeRead(tx -> {
+                var query = new Query("""
+                                              MATCH (cr:ContentRating {name: "Teen"})<-[:CONTENT_RATING]-(a:App)-[:INSTALLS]->(i:Installs)
+                                              RETURN i.name as installs, count(*) as count""");
+                var r = tx.run(query);
+                return r.list();
+            });
+            for (Record record : result) {
+                System.out.println(record.get("installs").asString() + ": " + record.get("count").asInt());
             }
         }
     }
